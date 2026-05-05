@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "exportedAt": "2026-05-05T12:33:30.886Z",
+  "exportedAt": "2026-05-05T12:35:52.726Z",
   "data": {
     "mt_products": [
       {
@@ -14,7 +14,7 @@
         "minStock": 3,
         "description": "Smartphone de última generación con cámara de 108MP y pantalla AMOLED",
         "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p1-0-1777982814783-gsn76ctt.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p1-0-1777984549243-shca8t7d.webp"
         ],
         "views": 245,
         "cartAdds": 42,
@@ -26,7 +26,7 @@
         "bulkQty": 3,
         "featured": "si",
         "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p1-0-1777982814783-gsn76ctt.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p1-0-1777984549243-shca8t7d.webp"
         ]
       },
       {
