@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "exportedAt": "2026-05-05T11:52:54.866Z",
+  "exportedAt": "2026-05-03T07:37:32.002Z",
   "data": {
     "mt_products": [
       {
@@ -14,7 +14,7 @@
         "minStock": 3,
         "description": "Smartphone de última generación con cámara de 108MP y pantalla AMOLED",
         "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p1-0-1777980665938-s5yqtv.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p1-0-1777753004156-sl9pbf.webp"
         ],
         "views": 245,
         "cartAdds": 42,
@@ -26,7 +26,7 @@
         "bulkQty": 3,
         "featured": "si",
         "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p1-0-1777980665938-s5yqtv.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p1-0-1777753004156-sl9pbf.webp"
         ]
       },
       {
@@ -40,7 +40,7 @@
         "minStock": 5,
         "description": "Auriculares Bluetooth 5.3 con cancelación de ruido activa",
         "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p2-0-1777980179470-sk07eq.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p2-0-1777793724835-s9qehb.webp"
         ],
         "views": 189,
         "cartAdds": 35,
@@ -52,7 +52,7 @@
         "bulkQty": 2,
         "featured": "no",
         "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p2-0-1777980179470-sk07eq.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p2-0-1777793724835-s9qehb.webp"
         ]
       },
       {
@@ -66,7 +66,8 @@
         "minStock": 10,
         "description": "Camiseta de algodón orgánico con diseño exclusivo",
         "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p3-0-1777980197035-uwfmzj.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p3-0-1777793838216-enw6ht.webp",
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p3-1-1777793847375-de3j7y.webp"
         ],
         "views": 156,
         "cartAdds": 28,
@@ -78,7 +79,8 @@
         "bulkQty": 5,
         "featured": "no",
         "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p3-0-1777980197035-uwfmzj.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p3-0-1777793838216-enw6ht.webp",
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p3-1-1777793847375-de3j7y.webp"
         ]
       },
       {
@@ -91,9 +93,7 @@
         "stock": 100,
         "minStock": 15,
         "description": "Caja de chocolates belgas artesanales - 12 unidades",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p4-0-1777980526554-afc2l7.webp"
-        ],
+        "images": [],
         "views": 320,
         "cartAdds": 56,
         "sales": 45,
@@ -102,10 +102,7 @@
         "originalPrice": 18,
         "bulkDiscount": 10,
         "bulkQty": 3,
-        "featured": "si",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p4-0-1777980526554-afc2l7.webp"
-        ]
+        "featured": "si"
       },
       {
         "id": "p5",
@@ -114,12 +111,10 @@
         "currency": "USD",
         "category": "Electrónica",
         "condition": "nuevo",
-        "stock": 0,
+        "stock": 5,
         "minStock": 2,
         "description": "Laptop gaming con RTX 4060, 16GB RAM, SSD 512GB",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p5-0-1777980208884-nmp3nm.webp"
-        ],
+        "images": [],
         "views": 412,
         "cartAdds": 15,
         "sales": 3,
@@ -128,10 +123,7 @@
         "originalPrice": 1099,
         "bulkDiscount": 0,
         "bulkQty": 3,
-        "featured": "si",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p5-0-1777980208884-nmp3nm.webp"
-        ]
+        "featured": "si"
       },
       {
         "id": "p6",
@@ -143,9 +135,7 @@
         "stock": 2,
         "minStock": 5,
         "description": "Zapatillas ultraligeras para running profesional",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p6-0-1777980595455-wofrf4.webp"
-        ],
+        "images": [],
         "views": 98,
         "cartAdds": 12,
         "sales": 8,
@@ -154,10 +144,7 @@
         "originalPrice": 75,
         "bulkDiscount": 0,
         "bulkQty": 3,
-        "featured": "no",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p6-0-1777980595455-wofrf4.webp"
-        ]
+        "featured": "no"
       },
       {
         "id": "p7",
@@ -169,9 +156,7 @@
         "stock": 8,
         "minStock": 3,
         "description": "Reloj inteligente con monitor cardíaco y GPS integrado",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p7-0-1777980417316-jgnu49.webp"
-        ],
+        "images": [],
         "views": 167,
         "cartAdds": 20,
         "sales": 10,
@@ -180,10 +165,7 @@
         "originalPrice": 129,
         "bulkDiscount": 5,
         "bulkQty": 2,
-        "featured": "no",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p7-0-1777980417316-jgnu49.webp"
-        ]
+        "featured": "no"
       },
       {
         "id": "p8",
@@ -195,9 +177,7 @@
         "stock": 20,
         "minStock": 5,
         "description": "Mochila resistente al agua con múltiples compartimentos",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p8-0-1777980424471-khcclc.webp"
-        ],
+        "images": [],
         "views": 78,
         "cartAdds": 9,
         "sales": 5,
@@ -206,10 +186,7 @@
         "originalPrice": 0,
         "bulkDiscount": 0,
         "bulkQty": 3,
-        "featured": "no",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p8-0-1777980424471-khcclc.webp"
-        ]
+        "featured": "no"
       }
     ],
     "mt_sales": null,
@@ -271,14 +248,6 @@
     },
     "mt_suppliers": null,
     "mt_notifications": [
-      {
-        "id": "3465c02d-109f-4590-9eea-ad1a8c9f38a9",
-        "type": "low_stock",
-        "message": "\"Laptop Gaming RTX\" tiene stock bajo (0)",
-        "productId": "p5",
-        "date": "2026-05-05T11:52:52.360Z",
-        "read": false
-      },
       {
         "id": "1c33b76c-1476-4423-a825-622a8db3d08e",
         "type": "best_seller",
@@ -375,11 +344,6 @@
         "date": "2026-05-03",
         "hour": 9,
         "count": 7
-      },
-      {
-        "date": "2026-05-05",
-        "hour": 13,
-        "count": 2
       }
     ],
     "mt_projects": []

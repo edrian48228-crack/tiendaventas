@@ -196,6 +196,17 @@ h1,h2,h3,h4,h5,h6,.section-title,.admin-tabs button,.nav-btn,.footer-col h4,.cre
 .modal-close:hover{color:var(--rojo);background:rgba(255,23,68,.1);border-color:var(--rojo);}
 .modal h2{font-family:'Nunito',Arial Black,sans-serif;font-size:1.2rem;margin-bottom:24px;color:var(--text-primary);padding-right:50px;letter-spacing:1px;display:flex;align-items:center;gap:10px;font-weight:900;}
 
+@media(max-width:640px){
+  .modal-overlay{padding:10px!important;align-items:flex-start!important;padding-top:24px!important;}
+  .modal{padding:18px!important;border-radius:16px!important;max-height:88vh!important;}
+  .modal h2{font-size:1rem!important;margin-bottom:14px!important;padding-right:42px!important;}
+  .modal-close{width:34px!important;height:34px!important;font-size:1.05rem!important;top:10px!important;right:10px!important;}
+  #contactModal .modal{max-width:94vw!important;}
+  #contactModal .contact-card{gap:8px!important;}
+  #contactCreatorPhoto{width:60px!important;height:60px!important;font-size:1.4rem!important;margin-bottom:10px!important;}
+}
+
+
 /* ===== LIGHTBOX ===== */
 .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:3000;justify-content:center;align-items:center;cursor:zoom-out;}
 .lightbox.show{display:flex;}
@@ -531,13 +542,23 @@ background:linear-gradient(135deg,var(--verde),var(--cyan),var(--azul));backgrou
 }
 
 
+
+@media(max-width:640px){
+  #mainNav{display:flex!important;flex-wrap:nowrap!important;gap:6px!important;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  #mainNav::-webkit-scrollbar{display:none;}
+  #mainNav .nav-btn,#mainNav .own-store-btn{flex:0 0 auto;padding:8px 10px!important;font-size:.78rem!important;}
+  #mainNav .nav-text{display:inline!important;}
+}
+
 /* === LOTE v10 UX MÓVIL === */
 @media(max-width:640px){
-  .badge-tag{padding:3px 7px;font-size:.6rem;letter-spacing:.3px;border-radius:7px;gap:3px;}
-  .badge-tag i{font-size:.6rem;}
-  .views-badge{padding:3px 7px;font-size:.6rem;}
-  .stock-low-badge{padding:3px 7px;font-size:.6rem;}
-  .badges-left{top:6px;left:6px;gap:4px;}
+  .badge-tag{padding:2px 5px!important;font-size:.5rem!important;letter-spacing:.2px!important;border-radius:6px!important;gap:2px!important;line-height:1.1;}
+  .badge-tag i{font-size:.5rem!important;}
+  .views-badge{padding:2px 5px!important;font-size:.5rem!important;}
+  .stock-low-badge{padding:2px 5px!important;font-size:.5rem!important;}
+  .badges-left{top:4px!important;left:4px!important;gap:3px!important;max-width:60%;}
+  .badge-agotado i{font-size:1.3rem!important;}
+  .badge-agotado span{font-size:.85rem!important;letter-spacing:2px!important;}
   .views-badge{top:6px;right:6px;}
   .btn-add-cart{width:38px;height:38px;font-size:.95rem;border-radius:11px;}
   .recommended-section{margin:14px 0;padding:16px;}
@@ -560,10 +581,22 @@ background:linear-gradient(135deg,var(--verde),var(--cyan),var(--azul));backgrou
   #productDetailContent .btn{padding:11px 18px!important;font-size:.85rem!important;}
   #productDetailContent .btn i{font-size:.95rem;}
   #productDetailContent a.btn-success{padding:11px 14px!important;}
-  /* Permitir copiar/pegar siempre */
-  input,textarea{-webkit-user-select:text!important;user-select:text!important;-webkit-touch-callout:default!important;touch-action:manipulation;}
+  /* moved to global */
 }
 .store-name{filter:drop-shadow(0 2px 10px rgba(255,109,0,.35));}
+
+input,textarea{-webkit-user-select:text!important;user-select:text!important;-webkit-touch-callout:default!important;-webkit-user-modify:read-write!important;user-modify:read-write!important;touch-action:manipulation;}
+
+@media(max-width:640px){
+  .section[style*="text-align:center"]{padding:10px 8px!important;margin:8px 0!important;}
+  #channelSection{margin-top:14px!important;gap:10px!important;}
+  .container[style*="margin-top:50px"]{margin-top:14px!important;}
+  .projects-section{padding:14px 10px!important;margin:10px 0!important;}
+  .footer{margin-top:10px!important;}
+  .footer-top{padding:18px 12px 12px!important;}
+  .footer-bottom{padding:12px 12px 10px!important;}
+  .footer-grid{gap:10px!important;}
+}
 
 .tab-count{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:18px;padding:0 6px;border-radius:999px;background:linear-gradient(135deg,var(--rojo),var(--naranja));color:#fff;font-size:.65rem;font-weight:900;margin-left:4px;}
 </style>
@@ -603,7 +636,7 @@ background:linear-gradient(135deg,var(--verde),var(--cyan),var(--azul));backgrou
 <a class="own-store-btn" id="ownStoreBtn" href="#" target="_blank" style="display:none;"><i class="fas fa-rocket"></i> <span>¡Quiero mi propia tienda!</span></a>
 <button class="nav-btn active" onclick="showPage('store')" id="navStore"><i class="fas fa-store"></i> <span class="nav-text">Tienda</span></button>
 <button class="nav-btn" onclick="openCart()" id="navCart"><i class="fas fa-shopping-bag"></i> <span class="nav-text">Carrito</span> <span class="cart-badge" id="cartBadge">0</span></button>
-<button class="nav-btn nav-btn-admin" onclick="showPage('admin-login')" id="navAdmin" style="position:relative;"><i class="fas fa-shield-halved"></i> <span class="nav-text">Admin</span> <span class="notif-badge" id="notifBadge" style="display:none;">0</span></button>
+<button class="nav-btn" onclick="document.getElementById('channelSection')?.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>{var el=document.querySelector('.contact-trigger');el&&el.click();},400)" id="navContact"><i class="fas fa-headset"></i> <span class="nav-text">Contacto</span></button><button class="nav-btn" onclick="document.querySelector('.projects-section')?.scrollIntoView({behavior:'smooth',block:'start'})" id="navProjects"><i class="fas fa-folder-open"></i> <span class="nav-text">Proyectos</span></button><button class="nav-btn nav-btn-admin" onclick="showPage('admin-login')" id="navAdmin" style="position:relative;"><i class="fas fa-shield-halved"></i> <span class="nav-text">Admin</span> <span class="notif-badge" id="notifBadge" style="display:none;">0</span></button>
 </nav>
 </div>
 </header>
@@ -738,8 +771,8 @@ background:linear-gradient(135deg,var(--verde),var(--cyan),var(--azul));backgrou
 <!-- ADMIN LOGIN -->
 <div id="page-admin-login" class="page" style="display:none;">
 <div class="container section" style="max-width:420px;margin:80px auto;">
-<div style="background:linear-gradient(135deg,var(--bg-card),rgba(255,23,68,.04));border:1px solid rgba(255,23,68,.2);border-radius:22px;padding:40px;text-align:center;">
-<div style="width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--rojo),var(--naranja));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.8rem;box-shadow:var(--neon-rojo);"><i class="fas fa-shield-halved" style="color:#fff;"></i></div>
+<div style="position:relative;background:linear-gradient(135deg,var(--bg-card),rgba(255,23,68,.04));border:1px solid rgba(255,23,68,.2);border-radius:22px;padding:40px;text-align:center;">
+<button class="modal-close" onclick="showPage('store')" style="position:absolute;top:14px;right:18px;font-size:1.2rem;background:var(--bg-secondary);color:var(--text-muted);font-weight:700;z-index:10;width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:12px;border:1px solid var(--glass-border);" aria-label="Cerrar"><i class="fas fa-times"></i></button><div style="width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--rojo),var(--naranja));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.8rem;box-shadow:var(--neon-rojo);"><i class="fas fa-shield-halved" style="color:#fff;"></i></div>
 <h2 style="font-family:'Orbitron',sans-serif;font-size:1.1rem;letter-spacing:1px;margin-bottom:8px;">PANEL ADMIN</h2>
 <p style="color:var(--text-muted);margin-bottom:20px;font-size:.82rem;">Ingresa tu contraseña de administrador</p>
 <div class="form-group pw-wrap"><input type="password" autocomplete="new-password" id="adminPassword" placeholder="Contraseña de administrador" onkeydown="if(event.key==='Enter')loginAdmin()"><button type="button" class="pw-toggle" onclick="togglePw('adminPassword',this)"><i class="fas fa-eye"></i></button></div>
@@ -990,18 +1023,18 @@ background:linear-gradient(135deg,var(--verde),var(--cyan),var(--azul));backgrou
 <!-- DATA -->
 <div class="admin-panel" id="panel-data">
 <h3 style="margin-bottom:18px;font-size:1rem;color:var(--naranja-brillante);display:flex;align-items:center;gap:8px;"><i class="fas fa-database"></i> IMPORTAR / EXPORTAR</h3>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" class="form-row">
-<div style="background:var(--bg-card);border:1px solid var(--glass-border);padding:28px;border-radius:18px;">
-<h4 style="margin-bottom:14px;color:var(--text-primary);display:flex;align-items:center;gap:8px;font-weight:800;"><i class="fas fa-upload" style="color:var(--naranja);"></i> Exportar</h4>
-<p style="color:var(--text-muted);margin-bottom:18px;font-size:.88rem;">Descarga todos tus datos como JSON</p>
-<button class="btn btn-primary btn-block" onclick="exportData()" style="border-radius:50px;"><i class="fas fa-download"></i> Descargar JSON</button>
-<button class="btn btn-secondary btn-block" id="btnDownloadSystem" onclick="downloadSystem()" style="margin-top:10px;border-radius:50px;display:none;"><i class="fas fa-file-code"></i> Descargar Sistema HTML</button>
-</div>
+<div style="display:flex;flex-direction:column;gap:20px;">
 <div style="background:var(--bg-card);border:1px solid var(--glass-border);padding:28px;border-radius:18px;">
 <h4 style="margin-bottom:14px;color:var(--text-primary);display:flex;align-items:center;gap:8px;font-weight:800;"><i class="fas fa-download" style="color:var(--verde);"></i> Importar</h4>
 <p style="color:var(--text-muted);margin-bottom:18px;font-size:.88rem;">Carga un archivo JSON con tus datos</p>
 <input type="file" id="importFile" accept=".json" style="margin-bottom:14px;">
 <button class="btn btn-success btn-block" onclick="importData()" style="border-radius:50px;"><i class="fas fa-upload"></i> Importar JSON</button>
+</div>
+<div style="background:var(--bg-card);border:1px solid var(--glass-border);padding:28px;border-radius:18px;">
+<h4 style="margin-bottom:14px;color:var(--text-primary);display:flex;align-items:center;gap:8px;font-weight:800;"><i class="fas fa-upload" style="color:var(--naranja);"></i> Exportar</h4>
+<p style="color:var(--text-muted);margin-bottom:18px;font-size:.88rem;">Descarga todos tus datos como JSON</p>
+<button class="btn btn-primary btn-block" onclick="exportData()" style="border-radius:50px;"><i class="fas fa-download"></i> Descargar JSON</button>
+<button class="btn btn-secondary btn-block" id="btnDownloadSystem" onclick="downloadSystem()" style="margin-top:10px;border-radius:50px;display:none;"><i class="fas fa-file-code"></i> Descargar Sistema HTML</button>
 </div>
 </div>
 </div>
@@ -2791,17 +2824,27 @@ async function ghToWebp(dataUrl, maxSide=1600, quality=0.85){
 }
 async function ghUploadImage(dataUrl, prefix, token){
   const conv = await ghToWebp(dataUrl);
-  const name = `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2,8)}.${conv.ext}`;
-  const path = 'img/'+name;
   const c=ghGetCreds();
-  // PUT con reintento de conflicto (no debería tener sha porque es nuevo, pero lo cubrimos)
-  await ghPutFileSafe(path, ghB64ToBin(conv.dataUrl), 'img: upload '+name, token);
+  // Nombre único + reintento si por azar choca con un archivo existente en otro repo migrado
+  let path, attempts=0;
+  while(attempts<6){
+    const rnd = Math.random().toString(36).slice(2,10);
+    const name = `${prefix}-${Date.now()}-${rnd}.${conv.ext}`;
+    path = 'img/'+name;
+    try{
+      const exists = await ghGetFile(path, token);
+      if(exists){ attempts++; continue; }
+    }catch(_){}
+    break;
+  }
+  await ghPutFileSafe(path, ghB64ToBin(conv.dataUrl), 'img: upload '+path, token);
   const sizeKB = Math.round(conv.dataUrl.length*0.75/1024);
   ghLog('Imagen subida ('+conv.ext.toUpperCase()+', ~'+sizeKB+'KB) → '+path,'ok');
   return `https://raw.githubusercontent.com/${c.owner}/${c.repo}/${c.branch||'main'}/${path}`;
 }
-/* PUT robusto: si GitHub responde 409/422 ("does not match"), refresca SHA y reintenta. */
-async function ghPutFileSafe(path, contentBase64, message, token, maxRetries=5){
+/* PUT robusto: si GitHub responde 409/422 ("does not match" / "sha"), refresca SHA y reintenta.
+   Compatible con migración entre repos: si el path ya existe en el destino, refresca SHA. */
+async function ghPutFileSafe(path, contentBase64, message, token, maxRetries=8){
   let sha=null;
   try{ const meta=await ghGetFile(path, token); if(meta) sha=meta.sha; }catch(_){}
   let attempt=0, lastErr=null;
@@ -2809,11 +2852,15 @@ async function ghPutFileSafe(path, contentBase64, message, token, maxRetries=5){
     try{ return await ghPutFile(path, contentBase64, message, sha, token); }
     catch(err){
       lastErr=err; const msg=(err&&err.message)||'';
-      if(/does not match|409|422|Conflict|sha/i.test(msg)){
+      // 409, 422, "does not match", "sha", "already exists"
+      if(/does not match|already exists|409|422|Conflict|sha/i.test(msg)){
         attempt++;
-        ghLog('SHA desactualizado en '+path+', reintento '+attempt+'/'+maxRetries,'warn');
-        await new Promise(r=>setTimeout(r, 400+attempt*500));
-        try{ const meta2=await ghGetFile(path, token); sha = meta2 ? meta2.sha : null; }catch(_){ sha=null; }
+        ghLog('Conflicto SHA en '+path+', reintento '+attempt+'/'+maxRetries,'warn');
+        await new Promise(r=>setTimeout(r, 300+attempt*400));
+        try{
+          const meta2=await ghGetFile(path, token);
+          sha = meta2 ? meta2.sha : null;
+        }catch(_){ sha=null; }
         continue;
       }
       throw err;
