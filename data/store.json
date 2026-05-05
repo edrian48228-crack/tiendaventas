@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "exportedAt": "2026-05-05T13:01:38.986Z",
+  "exportedAt": "2026-05-05T13:02:39.402Z",
   "data": {
     "mt_products": [
       {
@@ -257,7 +257,7 @@
         "USD",
         "Criptomoneda"
       ],
-      "adminPassword": "admin123",
+      "adminPassword": "1234",
       "supplierPassword": "proveedor123",
       "creatorPassword": "creator2025",
       "securityQuestion": "¿Nombre de tu primera mascota?",
