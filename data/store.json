@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "exportedAt": "2026-05-05T12:35:52.726Z",
+  "exportedAt": "2026-05-05T12:36:57.955Z",
   "data": {
     "mt_products": [
       {
@@ -94,7 +94,7 @@
         "minStock": 15,
         "description": "Caja de chocolates belgas artesanales - 12 unidades",
         "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p4-0-1777982837325-vlrakhol.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p4-0-1777984587975-85c3hopb.webp"
         ],
         "views": 320,
         "cartAdds": 57,
@@ -106,7 +106,7 @@
         "bulkQty": 3,
         "featured": "si",
         "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p4-0-1777982837325-vlrakhol.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p4-0-1777984587975-85c3hopb.webp"
         ]
       },
       {
@@ -120,7 +120,7 @@
         "minStock": 2,
         "description": "Laptop gaming con RTX 4060, 16GB RAM, SSD 512GB",
         "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p5-0-1777982863069-1aiqwj5k.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p5-0-1777984594268-z3sh0j4s.webp"
         ],
         "views": 412,
         "cartAdds": 15,
@@ -132,7 +132,7 @@
         "bulkQty": 3,
         "featured": "si",
         "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p5-0-1777982863069-1aiqwj5k.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p5-0-1777984594268-z3sh0j4s.webp"
         ]
       },
       {
@@ -172,7 +172,7 @@
         "minStock": 3,
         "description": "Reloj inteligente con monitor cardíaco y GPS integrado",
         "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p7-0-1777982880244-fxtccdqb.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p7-0-1777984614686-0a8diqcj.webp"
         ],
         "views": 167,
         "cartAdds": 20,
@@ -184,7 +184,7 @@
         "bulkQty": 2,
         "featured": "no",
         "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p7-0-1777982880244-fxtccdqb.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p7-0-1777984614686-0a8diqcj.webp"
         ]
       },
       {
@@ -198,7 +198,7 @@
         "minStock": 5,
         "description": "Mochila resistente al agua con múltiples compartimentos",
         "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p8-0-1777982882505-p4o718ya.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p8-0-1777984598071-aiq9i8oi.webp"
         ],
         "views": 78,
         "cartAdds": 9,
@@ -210,7 +210,7 @@
         "bulkQty": 3,
         "featured": "no",
         "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p8-0-1777982882505-p4o718ya.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p8-0-1777984598071-aiq9i8oi.webp"
         ]
       }
     ],
