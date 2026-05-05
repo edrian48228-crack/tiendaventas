@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "exportedAt": "2026-05-05T13:00:32.571Z",
+  "exportedAt": "2026-05-05T13:01:38.986Z",
   "data": {
     "mt_products": [
       {
@@ -212,7 +212,28 @@
         ]
       }
     ],
-    "mt_sales": null,
+    "mt_sales": [
+      {
+        "id": "782c3839-e5fa-42bd-a042-8a37147319c3",
+        "productId": "p2",
+        "productName": "Auriculares Inalámbricos",
+        "quantity": 1,
+        "total": 45,
+        "currency": "USD",
+        "paymentMethod": "Efectivo",
+        "date": "2026-05-05T13:00:48.469Z"
+      },
+      {
+        "id": "dca443fe-0698-4535-90ca-af73bd2a1f44",
+        "productId": "p4",
+        "productName": "Chocolates Artesanales",
+        "quantity": 1,
+        "total": 12,
+        "currency": "USD",
+        "paymentMethod": "Efectivo",
+        "date": "2026-05-05T13:00:48.469Z"
+      }
+    ],
     "mt_config": {
       "storeName": "MegaTienda Online",
       "whatsapp": "+5354693549",
@@ -262,7 +283,7 @@
       "logoEmoji": "🛒",
       "logoImage": "",
       "imgFolder": "",
-      "ownStoreUrl": "",
+      "ownStoreUrl": "https://edrian48228-crack.github.io/repo/app/",
       "affiliateUrl": "",
       "orderMessage": "",
       "contactBgImage": "",
