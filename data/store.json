@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "exportedAt": "2026-05-05T12:01:56.352Z",
+  "exportedAt": "2026-05-03T07:37:32.002Z",
   "data": {
     "mt_products": [
       {
@@ -93,9 +93,7 @@
         "stock": 100,
         "minStock": 15,
         "description": "Caja de chocolates belgas artesanales - 12 unidades",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p4-0-1777982506292-q0phaslr.webp"
-        ],
+        "images": [],
         "views": 320,
         "cartAdds": 56,
         "sales": 45,
@@ -104,10 +102,7 @@
         "originalPrice": 18,
         "bulkDiscount": 10,
         "bulkQty": 3,
-        "featured": "si",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p4-0-1777982506292-q0phaslr.webp"
-        ]
+        "featured": "si"
       },
       {
         "id": "p5",
@@ -119,9 +114,7 @@
         "stock": 5,
         "minStock": 2,
         "description": "Laptop gaming con RTX 4060, 16GB RAM, SSD 512GB",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p5-0-1777982508197-61yk7fz4.webp"
-        ],
+        "images": [],
         "views": 412,
         "cartAdds": 15,
         "sales": 3,
@@ -130,10 +123,7 @@
         "originalPrice": 1099,
         "bulkDiscount": 0,
         "bulkQty": 3,
-        "featured": "si",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p5-0-1777982508197-61yk7fz4.webp"
-        ]
+        "featured": "si"
       },
       {
         "id": "p6",
@@ -145,9 +135,7 @@
         "stock": 2,
         "minStock": 5,
         "description": "Zapatillas ultraligeras para running profesional",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p6-0-1777982510295-3wa7nd2h.webp"
-        ],
+        "images": [],
         "views": 98,
         "cartAdds": 12,
         "sales": 8,
@@ -156,10 +144,7 @@
         "originalPrice": 75,
         "bulkDiscount": 0,
         "bulkQty": 3,
-        "featured": "no",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p6-0-1777982510295-3wa7nd2h.webp"
-        ]
+        "featured": "no"
       },
       {
         "id": "p7",
@@ -171,9 +156,7 @@
         "stock": 8,
         "minStock": 3,
         "description": "Reloj inteligente con monitor cardíaco y GPS integrado",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p7-0-1777982512270-i80srxg4.webp"
-        ],
+        "images": [],
         "views": 167,
         "cartAdds": 20,
         "sales": 10,
@@ -182,10 +165,7 @@
         "originalPrice": 129,
         "bulkDiscount": 5,
         "bulkQty": 2,
-        "featured": "no",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p7-0-1777982512270-i80srxg4.webp"
-        ]
+        "featured": "no"
       },
       {
         "id": "p8",
@@ -197,9 +177,7 @@
         "stock": 20,
         "minStock": 5,
         "description": "Mochila resistente al agua con múltiples compartimentos",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p8-0-1777982514500-guh5sxtl.webp"
-        ],
+        "images": [],
         "views": 78,
         "cartAdds": 9,
         "sales": 5,
@@ -208,10 +186,7 @@
         "originalPrice": 0,
         "bulkDiscount": 0,
         "bulkQty": 3,
-        "featured": "no",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p8-0-1777982514500-guh5sxtl.webp"
-        ]
+        "featured": "no"
       }
     ],
     "mt_sales": null,
@@ -369,11 +344,6 @@
         "date": "2026-05-03",
         "hour": 9,
         "count": 7
-      },
-      {
-        "date": "2026-05-05",
-        "hour": 13,
-        "count": 1
       }
     ],
     "mt_projects": []

@@ -599,6 +599,45 @@ input,textarea{-webkit-user-select:text!important;user-select:text!important;-we
 }
 
 .tab-count{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:18px;padding:0 6px;border-radius:999px;background:linear-gradient(135deg,var(--rojo),var(--naranja));color:#fff;font-size:.65rem;font-weight:900;margin-left:4px;}
+
+/* v14 - Dashboard mobile compacto (#9) */
+@media(max-width:640px){
+  #panel-dashboard{padding:8px 4px!important;overflow-x:hidden;}
+  #panel-dashboard h3{font-size:.85rem!important;}
+  .dash-cards{grid-template-columns:1fr 1fr!important;gap:8px!important;margin-bottom:14px!important;}
+  .dash-card{padding:12px 8px!important;border-radius:14px!important;}
+  .dash-card .number{font-size:1.1rem!important;}
+  .dash-card .label{font-size:.68rem!important;margin-top:4px!important;}
+  .dash-card .dc-icon{font-size:1.3rem!important;margin-bottom:4px!important;}
+  #panel-dashboard .form-row,
+  #panel-dashboard div[style*="grid-template-columns:1fr 1fr"]{display:block!important;}
+  #panel-dashboard div[style*="border-radius:18px"]{padding:14px!important;margin-top:12px!important;border-radius:14px!important;}
+  #panel-dashboard h4{font-size:.82rem!important;}
+  .bar-chart{max-width:100%;overflow-x:auto;}
+  .admin-tabs{overflow-x:auto;flex-wrap:nowrap!important;}
+  .admin-tabs button{flex:0 0 auto;font-size:.72rem!important;padding:8px 10px!important;}
+  .admin-content{padding:8px!important;}
+}
+
+/* v14 - Carrito mobile espacioso (#10) */
+@media(max-width:640px){
+  .cart-body{padding:14px 10px!important;}
+  .cart-item{flex-wrap:wrap;gap:10px!important;padding:14px 12px!important;margin-bottom:14px!important;}
+  .cart-item img{width:64px!important;height:64px!important;}
+  .cart-item .details{flex:1 1 calc(100% - 84px);min-width:0;}
+  .cart-item .details h4{white-space:normal!important;font-size:.88rem!important;line-height:1.3;}
+  .cart-item .qty-control{flex:0 0 100%;justify-content:flex-end;margin-top:6px;}
+  .cart-item .qty-control button{width:36px;height:36px;}
+}
+
+/* v14 - Toasts/notificaciones mobile (#11) */
+@media(max-width:640px){
+  .mt-toast{
+    right:10px!important;left:10px!important;max-width:none!important;
+    font-size:.82rem!important;padding:12px 14px!important;
+  }
+  .notification{padding:12px 14px!important;font-size:.78rem!important;}
+}
 </style>
 </head>
 <body>
@@ -894,7 +933,7 @@ input,textarea{-webkit-user-select:text!important;user-select:text!important;-we
 <input type="text" id="adminSupSearch" placeholder="Buscar proveedor..." oninput="renderSuppliers()">
 </div>
 <div class="table-responsive">
-<table><thead><tr><th>Nombre</th><th>Categoría</th><th>Dirección</th><th>Teléfono</th><th>Email</th><th>Acciones</th></tr></thead>
+<table><thead><tr><th>Nombre</th><th>Categoría</th><th>Dirección</th><th>Contacto</th><th>Email</th><th>Acciones</th></tr></thead>
 <tbody id="suppliersTable"></tbody></table>
 </div>
 </div>
@@ -971,10 +1010,10 @@ input,textarea{-webkit-user-select:text!important;user-select:text!important;-we
 </div>
 <h4 style="margin:24px 0 18px;color:var(--text-primary);display:flex;align-items:center;gap:8px;font-weight:800;"><i class="fas fa-lock" style="color:var(--rojo);"></i> Seguridad</h4>
 <div class="form-row">
-<div class="form-group pw-wrap"><label>Contraseña Admin</label><input id="cfgAdminPass" type="password" autocomplete="new-password" readonly onfocus="if(!isCreator){this.blur();showToast('<i class=\'fas fa-lock\'></i> Solo el creador puede cambiar la contraseña');}"><button type="button" class="pw-toggle" onclick="togglePw('cfgAdminPass',this)"><i class="fas fa-eye"></i></button></div>
+<div class="form-group pw-wrap"><label>Cambiar contraseña Admin</label><input id="cfgAdminPass" type="password" autocomplete="new-password" placeholder="Nueva contraseña (vacío = no cambiar)"><button type="button" class="pw-toggle" onclick="togglePw('cfgAdminPass',this)"><i class="fas fa-eye"></i></button></div>
 
 </div>
-<p style="font-size:.75rem;color:var(--text-muted);margin-top:-10px;margin-bottom:14px;"><i class="fas fa-lock"></i> Solo el creador puede modificar la contraseña del administrador.</p>
+<p style="font-size:.75rem;color:var(--text-muted);margin-top:-10px;margin-bottom:14px;"><i class="fas fa-info-circle"></i> El administrador puede cambiar su propia contraseña. Solo el creador puede cambiar la del creador.</p>
 <h4 style="margin:24px 0 18px;color:var(--text-primary);display:flex;align-items:center;gap:8px;font-weight:800;"><i class="fas fa-credit-card" style="color:var(--verde);"></i> Métodos de Pago (coma)</h4>
 <div class="form-group"><input id="cfgPayments" placeholder="Efectivo, Transferencia, etc."></div>
 <h4 style="margin:24px 0 18px;color:var(--text-primary);display:flex;align-items:center;gap:8px;font-weight:800;"><i class="fas fa-coins" style="color:var(--amarillo);"></i> Monedas (coma)</h4>
@@ -1014,8 +1053,6 @@ input,textarea{-webkit-user-select:text!important;user-select:text!important;-we
 <p style="font-size:.75rem;color:var(--text-muted);margin-top:6px;"><i class="fas fa-info-circle"></i> Selecciona una carpeta para previsualizar las imágenes disponibles</p>
 </div>
 <div id="folderPreview" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;"></div>
-<h4 style="margin:24px 0 18px;color:var(--text-primary);display:flex;align-items:center;gap:8px;font-weight:800;"><i class="fas fa-rocket" style="color:var(--naranja-brillante);"></i> Botón "Quiero mi propia tienda"</h4>
-<div class="form-group"><label>URL del botón</label><input id="cfgOwnStoreUrl" placeholder="https://wa.me/5350000000?text=Quiero mi tienda"></div>
 <button class="btn btn-primary" onclick="saveConfig()" style="margin-top:20px;border-radius:50px;"><i class="fas fa-floppy-disk"></i> Guardar Configuración</button>
 </div>
 </div>
@@ -1098,6 +1135,8 @@ input,textarea{-webkit-user-select:text!important;user-select:text!important;-we
 <button class="btn btn-secondary btn-sm" onclick="triggerImageUpload('cfgContactBgImage')" style="border-radius:12px;white-space:nowrap;"><i class="fas fa-upload"></i> Subir</button>
 </div>
 </div>
+<h4 style="margin:20px 0 14px;"><i class="fas fa-rocket" style="color:var(--naranja-brillante);"></i> Botón "Quiero mi propia tienda"</h4>
+<div class="form-group"><label>URL del botón</label><input id="cfgOwnStoreUrl" placeholder="https://wa.me/5350000000?text=Quiero mi tienda"></div>
 <h4 style="margin:20px 0 14px;"><i class="fas fa-hand-holding-dollar" style="color:var(--verde);"></i> Página de Afiliados</h4>
 <div class="form-group"><label>URL del botón "Gana dinero conmigo"</label><input id="cfgAffiliateUrl" placeholder="https://..."></div>
 <h4 style="margin:20px 0 14px;"><i class="fas fa-comment-dots" style="color:var(--cyan);"></i> Mensaje de Pedido WhatsApp</h4>
@@ -1246,7 +1285,8 @@ input,textarea{-webkit-user-select:text!important;user-select:text!important;-we
 <div class="form-group"><label>Nombre</label><input id="sfName"></div>
 <div class="form-group"><label>Categoría</label><input id="sfCategory" placeholder="Ej: Electrónica"></div>
 <div class="form-group"><label>Dirección</label><input id="sfAddress"></div>
-<div class="form-group"><label>Teléfono</label><input id="sfPhone"></div>
+<div class="form-group"><label><i class="fas fa-phone" style="color:var(--verde);"></i> Teléfono (acceso directo a llamada)</label><input id="sfPhone" placeholder="+5350000000"></div>
+<div class="form-group"><label><i class="fab fa-whatsapp" style="color:#25d366;"></i> WhatsApp (acceso directo)</label><input id="sfWhatsapp" placeholder="+5350000000 (vacío = usar teléfono)"></div>
 <div class="form-group"><label>Email (opcional)</label><input id="sfEmail" type="email"></div>
 <button class="btn btn-primary btn-block" onclick="saveSupplier()" style="margin-top:16px;border-radius:50px;"><i class="fas fa-floppy-disk"></i> Guardar</button>
 </div>
@@ -1669,7 +1709,7 @@ else{cart.push({id:p.id,name:p.name,price:p.price,originalPrice:p.originalPrice|
 updateCartBadge();showToast(`<i class="fas fa-check-circle"></i> "${p.name}" añadido al carrito`);
 }
 
-function showToast(msg){const t=document.createElement('div');t.style.cssText='position:fixed;top:80px;right:20px;background:linear-gradient(135deg,var(--rojo),var(--naranja));color:#fff;padding:16px 24px;border-radius:16px;font-weight:600;z-index:5000;animation:modal-enter .3s;box-shadow:0 10px 40px rgba(0,0,0,.5);max-width:340px;font-size:.9rem;display:flex;align-items:center;gap:8px;';t.innerHTML=msg;document.body.appendChild(t);setTimeout(()=>{t.style.opacity='0';t.style.transition='.3s';setTimeout(()=>t.remove(),300);},2500);}
+function showToast(msg){const t=document.createElement('div');t.className='mt-toast';t.style.cssText='position:fixed;top:80px;right:20px;background:linear-gradient(135deg,var(--rojo),var(--naranja));color:#fff;padding:16px 24px;border-radius:16px;font-weight:600;z-index:5000;animation:modal-enter .3s;box-shadow:0 10px 40px rgba(0,0,0,.5);max-width:340px;font-size:.9rem;display:flex;align-items:center;gap:8px;';t.innerHTML=msg;document.body.appendChild(t);setTimeout(()=>{t.style.opacity='0';t.style.transition='.3s';setTimeout(()=>t.remove(),300);},2500);}
 
 function renderCart(){
 const items=document.getElementById('cartItems');
@@ -1778,11 +1818,11 @@ document.getElementById('tabGithubSync').style.display=isCreator?'inline-flex':'
 const ri=document.getElementById('roleIndicator');
 if(isCreator){ri.innerHTML='<i class="fas fa-crown"></i> CREADOR';ri.style.background='linear-gradient(135deg,var(--naranja),var(--amarillo))';ri.style.color='#111';}
 else{ri.innerHTML='<i class="fas fa-shield-halved"></i> ADMIN';ri.style.background='var(--bg-secondary)';ri.style.color='var(--text-secondary)';ri.style.border='1px solid var(--glass-border)';}
-renderDashboard();renderAdminProducts();renderNotifications();loadConfig();renderSuppliers();updateDownloadBtn();updateTabCounts();
+renderDashboard();renderAdminProducts();renderNotifications();loadConfig();renderSuppliers();updateDownloadBtn();updateTabCounts();applyConfig();
 if(isCreator)updateLicenseUI();
 }
 
-function logoutAdmin(){isAdmin=false;isCreator=false;showPage('store');}
+function logoutAdmin(){isAdmin=false;isCreator=false;showPage('store');applyConfig();}
 
 function showAdminTab(tab,btn){
 document.querySelectorAll('.admin-panel').forEach(p=>p.classList.remove('active'));
@@ -1954,18 +1994,27 @@ const filtered=suppliers.filter(s=>{
 if(search&&!s.name.toLowerCase().includes(search)&&!(s.category||'').toLowerCase().includes(search))return false;
 return true;
 });
-document.getElementById('suppliersTable').innerHTML=filtered.map(s=>`
+document.getElementById('suppliersTable').innerHTML=filtered.map(s=>{
+const wa=(s.whatsapp||s.phone||'').replace(/[^0-9]/g,'');
+const tel=(s.phone||'').replace(/[^0-9+]/g,'');
+return `
 <tr>
-<td><strong>${s.name}</strong></td><td>${s.category}</td><td>${s.address}</td><td>${s.phone}</td><td>${s.email||'-'}</td>
+<td><strong>${s.name}</strong></td><td>${s.category}</td><td>${s.address}</td>
+<td style="white-space:nowrap;">
+${tel?`<a href="tel:${tel}" class="btn-icon" style="background:var(--verde);color:#fff;margin:2px;" title="Llamar"><i class="fas fa-phone"></i></a>`:''}
+${wa?`<a href="https://wa.me/${wa}" target="_blank" class="btn-icon" style="background:#25d366;color:#fff;margin:2px;" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>`:''}
+<span style="font-size:.78rem;color:var(--text-muted);display:block;margin-top:4px;">${s.phone||''}</span>
+</td>
+<td>${s.email||'-'}</td>
 <td style="white-space:nowrap;">
 <button class="btn-icon btn-warning" onclick="editSupplier('${s.id}')" title="Editar" style="margin:2px;"><i class="fas fa-pen-fancy"></i></button>
 <button class="btn-icon btn-danger" onclick="deleteSupplier('${s.id}')" title="Eliminar" style="margin:2px;"><i class="fas fa-xmark"></i></button>
 </td>
-</tr>`).join('')||'<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:40px;">No hay proveedores</td></tr>';
+</tr>`;}).join('')||'<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:40px;">No hay proveedores</td></tr>';
 }
-function openSupplierForm(id){editingSupplierId=id||null;document.getElementById('supplierFormTitle').innerHTML=id?'<i class="fas fa-pen-fancy"></i> EDITAR PROVEEDOR':'<i class="fas fa-truck"></i> NUEVO PROVEEDOR';if(id){const s=suppliers.find(x=>x.id===id);if(s){document.getElementById('sfName').value=s.name;document.getElementById('sfCategory').value=s.category;document.getElementById('sfAddress').value=s.address;document.getElementById('sfPhone').value=s.phone;document.getElementById('sfEmail').value=s.email||'';}}else{['sfName','sfCategory','sfAddress','sfPhone','sfEmail'].forEach(id=>document.getElementById(id).value='');}openModal('supplierFormModal');}
+function openSupplierForm(id){editingSupplierId=id||null;document.getElementById('supplierFormTitle').innerHTML=id?'<i class="fas fa-pen-fancy"></i> EDITAR PROVEEDOR':'<i class="fas fa-truck"></i> NUEVO PROVEEDOR';if(id){const s=suppliers.find(x=>x.id===id);if(s){document.getElementById('sfName').value=s.name;document.getElementById('sfCategory').value=s.category;document.getElementById('sfAddress').value=s.address;document.getElementById('sfPhone').value=s.phone;document.getElementById('sfWhatsapp').value=s.whatsapp||'';document.getElementById('sfEmail').value=s.email||'';}}else{['sfName','sfCategory','sfAddress','sfPhone','sfWhatsapp','sfEmail'].forEach(id=>document.getElementById(id).value='');}openModal('supplierFormModal');}
 function editSupplier(id){openSupplierForm(id);}
-function saveSupplier(){const name=document.getElementById('sfName').value.trim();const phone=document.getElementById('sfPhone').value.trim();if(!name||!phone){alert('Complete nombre y teléfono');return;}const data={name,category:document.getElementById('sfCategory').value.trim(),address:document.getElementById('sfAddress').value.trim(),phone,email:document.getElementById('sfEmail').value.trim()};if(editingSupplierId){const s=suppliers.find(x=>x.id===editingSupplierId);if(s)Object.assign(s,data);}else{suppliers.push({id:crypto.randomUUID(),...data});}save('mt_suppliers',suppliers);renderSuppliers();updateTabCounts();closeModal('supplierFormModal');showToast('<i class="fas fa-check-circle"></i> Proveedor guardado');}
+function saveSupplier(){const name=document.getElementById('sfName').value.trim();const phone=document.getElementById('sfPhone').value.trim();if(!name||!phone){alert('Complete nombre y teléfono');return;}const data={name,category:document.getElementById('sfCategory').value.trim(),address:document.getElementById('sfAddress').value.trim(),phone,whatsapp:document.getElementById('sfWhatsapp').value.trim(),email:document.getElementById('sfEmail').value.trim()};if(editingSupplierId){const s=suppliers.find(x=>x.id===editingSupplierId);if(s)Object.assign(s,data);}else{suppliers.push({id:crypto.randomUUID(),...data});}save('mt_suppliers',suppliers);renderSuppliers();updateTabCounts();closeModal('supplierFormModal');showToast('<i class="fas fa-check-circle"></i> Proveedor guardado');}
 async function deleteSupplier(id){const ok=await showCustomConfirm('Eliminar Proveedor','¿Eliminar este proveedor?','🗑️');if(!ok)return;suppliers=suppliers.filter(s=>s.id!==id);save('mt_suppliers',suppliers);renderSuppliers();updateTabCounts();}
 async function deleteAllSuppliers(){
 const ok=await showCustomConfirm('Eliminar Proveedores','¿Eliminar TODOS los proveedores? Esta acción no se puede deshacer.','🗑️');
@@ -2011,7 +2060,7 @@ document.getElementById('cfgWhatsapp').value=config.whatsapp;
 document.getElementById('cfgFacebook').value=config.facebook;
 document.getElementById('cfgEmail').value=config.email;
 // Admin can only change their password if creator allows; show current
-if(isCreator){document.getElementById('cfgAdminPass').value=config.adminPassword;}else{document.getElementById('cfgAdminPass').value='';document.getElementById('cfgAdminPass').placeholder='Solo el creador puede cambiar';}
+document.getElementById('cfgAdminPass').value='';
 // supplier password removed
 document.getElementById('cfgPayments').value=config.paymentMethods.join(', ');
 document.getElementById('cfgCurrencies').value=config.currencies.join(', ');
@@ -2027,7 +2076,7 @@ document.getElementById('cfgAvatarMessages').value=config.avatarMessages||DEFAUL
 document.getElementById('cfgLogoEmoji').value=config.logoEmoji||'🛒';
 document.getElementById('cfgLogoImage').value=config.logoImage||'';
 document.getElementById('cfgImgFolder').value=config.imgFolder||'';
-document.getElementById('cfgOwnStoreUrl').value=config.ownStoreUrl||'';
+// ownStoreUrl ahora en sesión Creador (se carga abajo)
 // Additional contacts
 const ac=(config.additionalContacts||[]).map(c=>`${c.type}|${c.label}|${c.value}`).join('\n');
 document.getElementById('cfgAdditionalContacts').value=ac;
@@ -2047,6 +2096,7 @@ document.getElementById('cfgSecurityAnswer').value=config.securityAnswer||'';
 if(document.getElementById('cfgContactBgImage'))document.getElementById('cfgContactBgImage').value=config.contactBgImage||'';
 if(document.getElementById('cfgAffiliateUrl'))document.getElementById('cfgAffiliateUrl').value=config.affiliateUrl||'';
 if(document.getElementById('cfgOrderMessage'))document.getElementById('cfgOrderMessage').value=config.orderMessage||'';
+if(document.getElementById('cfgOwnStoreUrl'))document.getElementById('cfgOwnStoreUrl').value=config.ownStoreUrl||'';
 }
 }
 
@@ -2056,7 +2106,7 @@ config.whatsapp=document.getElementById('cfgWhatsapp').value.trim();
 config.facebook=document.getElementById('cfgFacebook').value.trim();
 config.email=document.getElementById('cfgEmail').value.trim();
 // Admin can't change admin password - only creator can
-if(isCreator){const ap=document.getElementById('cfgAdminPass').value;if(ap)config.adminPassword=ap;}
+{const ap=document.getElementById('cfgAdminPass').value;if(ap)config.adminPassword=ap;}
 // supplier password removed
 config.paymentMethods=document.getElementById('cfgPayments').value.split(',').map(s=>s.trim()).filter(Boolean);
 config.currencies=document.getElementById('cfgCurrencies').value.split(',').map(s=>s.trim()).filter(Boolean);
@@ -2072,7 +2122,7 @@ config.avatarMessages=document.getElementById('cfgAvatarMessages').value.trim()|
 config.logoEmoji=document.getElementById('cfgLogoEmoji').value.trim()||'🛒';
 config.logoImage=document.getElementById('cfgLogoImage').value.trim();
 config.imgFolder=document.getElementById('cfgImgFolder').value.trim();
-config.ownStoreUrl=document.getElementById('cfgOwnStoreUrl').value.trim();
+// ownStoreUrl ahora se guarda en saveCreatorConfig()
 // Parse additional contacts
 const acRaw=document.getElementById('cfgAdditionalContacts').value.trim();
 config.additionalContacts=acRaw?acRaw.split('\n').map(line=>{const [type,label,value]=line.split('|').map(s=>s.trim());return type&&label&&value?{id:crypto.randomUUID(),type,label,value}:null;}).filter(Boolean):[];
@@ -2091,6 +2141,7 @@ config.creatorPhone=document.getElementById('cfgCreatorPhone').value.trim();
 config.creatorPhoto=document.getElementById('cfgCreatorPhoto').value.trim();
 config.contactBgImage=(document.getElementById('cfgContactBgImage')||{}).value||(config.contactBgImage||'');
 config.affiliateUrl=(document.getElementById('cfgAffiliateUrl')||{}).value||(config.affiliateUrl||'');
+config.ownStoreUrl=(document.getElementById('cfgOwnStoreUrl')||{}).value||(config.ownStoreUrl||'');
 config.orderMessage=(document.getElementById('cfgOrderMessage')||{}).value||(config.orderMessage||'');
 config.securityQuestion=document.getElementById('cfgSecurityQuestion').value.trim();
 const sa=document.getElementById('cfgSecurityAnswer').value.trim();
@@ -2117,8 +2168,10 @@ document.getElementById('heroCreatorName').textContent=config.creatorName;
 document.getElementById('heroVisitCount').textContent=getVisitsToday();
 
 // Own store button
+// Own store button - solo visible si NO está logueado o si es CREADOR (oculto en sesión admin normal)
 const ownBtn=document.getElementById('ownStoreBtn');
-if(config.ownStoreUrl){ownBtn.style.display='inline-flex';ownBtn.href=config.ownStoreUrl;}
+const showOwn=config.ownStoreUrl && (!isAdmin || isCreator);
+if(showOwn){ownBtn.style.display='inline-flex';ownBtn.href=config.ownStoreUrl;}
 else{ownBtn.style.display='none';}
 
 // Affiliate button
