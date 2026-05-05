@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "exportedAt": "2026-05-05T12:07:19.734Z",
+  "exportedAt": "2026-05-05T12:08:34.549Z",
   "data": {
     "mt_products": [
       {
@@ -70,7 +70,7 @@
           "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p3-1-1777793847375-de3j7y.webp"
         ],
         "views": 156,
-        "cartAdds": 28,
+        "cartAdds": 29,
         "sales": 35,
         "lastSaleDate": "2025-03-29",
         "createdAt": "2025-02-01",
@@ -97,7 +97,7 @@
           "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p4-0-1777982837325-vlrakhol.webp"
         ],
         "views": 320,
-        "cartAdds": 56,
+        "cartAdds": 57,
         "sales": 45,
         "lastSaleDate": "2025-03-30",
         "createdAt": "2025-02-10",
@@ -119,7 +119,9 @@
         "stock": 5,
         "minStock": 2,
         "description": "Laptop gaming con RTX 4060, 16GB RAM, SSD 512GB",
-        "images": [],
+        "images": [
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p5-0-1777982863069-1aiqwj5k.webp"
+        ],
         "views": 412,
         "cartAdds": 15,
         "sales": 3,
@@ -128,7 +130,10 @@
         "originalPrice": 1099,
         "bulkDiscount": 0,
         "bulkQty": 3,
-        "featured": "si"
+        "featured": "si",
+        "__lastRepoImgs": [
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p5-0-1777982863069-1aiqwj5k.webp"
+        ]
       },
       {
         "id": "p6",
@@ -140,7 +145,9 @@
         "stock": 2,
         "minStock": 5,
         "description": "Zapatillas ultraligeras para running profesional",
-        "images": [],
+        "images": [
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p6-0-1777982866220-mp61jlo1.webp"
+        ],
         "views": 98,
         "cartAdds": 12,
         "sales": 8,
@@ -149,7 +156,10 @@
         "originalPrice": 75,
         "bulkDiscount": 0,
         "bulkQty": 3,
-        "featured": "no"
+        "featured": "no",
+        "__lastRepoImgs": [
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p6-0-1777982866220-mp61jlo1.webp"
+        ]
       },
       {
         "id": "p7",
@@ -161,7 +171,9 @@
         "stock": 8,
         "minStock": 3,
         "description": "Reloj inteligente con monitor cardíaco y GPS integrado",
-        "images": [],
+        "images": [
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p7-0-1777982880244-fxtccdqb.webp"
+        ],
         "views": 167,
         "cartAdds": 20,
         "sales": 10,
@@ -170,7 +182,10 @@
         "originalPrice": 129,
         "bulkDiscount": 5,
         "bulkQty": 2,
-        "featured": "no"
+        "featured": "no",
+        "__lastRepoImgs": [
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p7-0-1777982880244-fxtccdqb.webp"
+        ]
       },
       {
         "id": "p8",
@@ -182,7 +197,9 @@
         "stock": 20,
         "minStock": 5,
         "description": "Mochila resistente al agua con múltiples compartimentos",
-        "images": [],
+        "images": [
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p8-0-1777982882505-p4o718ya.webp"
+        ],
         "views": 78,
         "cartAdds": 9,
         "sales": 5,
@@ -191,7 +208,10 @@
         "originalPrice": 0,
         "bulkDiscount": 0,
         "bulkQty": 3,
-        "featured": "no"
+        "featured": "no",
+        "__lastRepoImgs": [
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p8-0-1777982882505-p4o718ya.webp"
+        ]
       }
     ],
     "mt_sales": null,
