@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "exportedAt": "2026-05-05T12:06:13.598Z",
+  "exportedAt": "2026-05-05T12:07:19.734Z",
   "data": {
     "mt_products": [
       {
@@ -14,7 +14,7 @@
         "minStock": 3,
         "description": "Smartphone de última generación con cámara de 108MP y pantalla AMOLED",
         "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p1-0-1777753004156-sl9pbf.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p1-0-1777982814783-gsn76ctt.webp"
         ],
         "views": 245,
         "cartAdds": 42,
@@ -26,7 +26,7 @@
         "bulkQty": 3,
         "featured": "si",
         "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p1-0-1777753004156-sl9pbf.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p1-0-1777982814783-gsn76ctt.webp"
         ]
       },
       {
@@ -40,7 +40,7 @@
         "minStock": 5,
         "description": "Auriculares Bluetooth 5.3 con cancelación de ruido activa",
         "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p2-0-1777793724835-s9qehb.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p2-0-1777982833365-yralqlhy.webp"
         ],
         "views": 189,
         "cartAdds": 35,
@@ -52,7 +52,7 @@
         "bulkQty": 2,
         "featured": "no",
         "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p2-0-1777793724835-s9qehb.webp"
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p2-0-1777982833365-yralqlhy.webp"
         ]
       },
       {
@@ -93,7 +93,9 @@
         "stock": 100,
         "minStock": 15,
         "description": "Caja de chocolates belgas artesanales - 12 unidades",
-        "images": [],
+        "images": [
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p4-0-1777982837325-vlrakhol.webp"
+        ],
         "views": 320,
         "cartAdds": 56,
         "sales": 45,
@@ -102,7 +104,10 @@
         "originalPrice": 18,
         "bulkDiscount": 10,
         "bulkQty": 3,
-        "featured": "si"
+        "featured": "si",
+        "__lastRepoImgs": [
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p4-0-1777982837325-vlrakhol.webp"
+        ]
       },
       {
         "id": "p5",
