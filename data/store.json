@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "exportedAt": "2026-05-05T11:27:08.693Z",
+  "exportedAt": "2026-05-05T11:28:49.794Z",
   "data": {
     "mt_products": [
       {
@@ -91,7 +91,9 @@
         "stock": 100,
         "minStock": 15,
         "description": "Caja de chocolates belgas artesanales - 12 unidades",
-        "images": [],
+        "images": [
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p4-0-1777980526554-afc2l7.webp"
+        ],
         "views": 320,
         "cartAdds": 56,
         "sales": 45,
@@ -100,7 +102,10 @@
         "originalPrice": 18,
         "bulkDiscount": 10,
         "bulkQty": 3,
-        "featured": "si"
+        "featured": "si",
+        "__lastRepoImgs": [
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p4-0-1777980526554-afc2l7.webp"
+        ]
       },
       {
         "id": "p5",
