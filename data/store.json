@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "exportedAt": "2026-05-05T11:31:14.150Z",
+  "exportedAt": "2026-05-05T11:52:54.866Z",
   "data": {
     "mt_products": [
       {
@@ -114,7 +114,7 @@
         "currency": "USD",
         "category": "Electrónica",
         "condition": "nuevo",
-        "stock": 5,
+        "stock": 0,
         "minStock": 2,
         "description": "Laptop gaming con RTX 4060, 16GB RAM, SSD 512GB",
         "images": [
@@ -271,6 +271,14 @@
     },
     "mt_suppliers": null,
     "mt_notifications": [
+      {
+        "id": "3465c02d-109f-4590-9eea-ad1a8c9f38a9",
+        "type": "low_stock",
+        "message": "\"Laptop Gaming RTX\" tiene stock bajo (0)",
+        "productId": "p5",
+        "date": "2026-05-05T11:52:52.360Z",
+        "read": false
+      },
       {
         "id": "1c33b76c-1476-4423-a825-622a8db3d08e",
         "type": "best_seller",
