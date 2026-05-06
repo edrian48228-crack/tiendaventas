@@ -1530,7 +1530,6 @@ if(page==='store'){renderProducts();renderRecommended();document.getElementById(
 // Limpia campos sensibles al entrar a páginas de login (autocompletado del navegador)
 if(page==='admin-login'){const ap=document.getElementById('adminPassword');if(ap){ap.value='';setTimeout(()=>ap.value='',50);}}
 if(page==='creator-login'){const cp=document.getElementById('creatorPassword');if(cp){cp.value='';setTimeout(()=>cp.value='',50);}}
-document.body.classList.toggle('in-admin', page==='admin' || page==='admin-login' || page==='creator-login' || page==='creator');
 window.scrollTo({top:0,behavior:'smooth'});
 }
 
@@ -1734,21 +1733,19 @@ const hasImg=c.image&&c.image.length>0;
 return `
 <div class="cart-item">
 ${hasImg?`<img src="${c.image}" alt="${c.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-<div class="ph-icon" style="display:none;background:var(--bg-secondary);align-items:center;justify-content:center;">${ICON_PLACEHOLDERS[c.category]||ICON_PLACEHOLDERS.default}</div>`:
-`<div class="ph-icon" style="background:var(--bg-secondary);display:flex;align-items:center;justify-content:center;flex-shrink:0;">${ICON_PLACEHOLDERS[c.category]||ICON_PLACEHOLDERS.default}</div>`}
+<div style="display:none;width:72px;height:72px;border-radius:12px;background:var(--bg-secondary);align-items:center;justify-content:center;">${ICON_PLACEHOLDERS[c.category]||ICON_PLACEHOLDERS.default}</div>`:
+`<div style="width:72px;height:72px;border-radius:12px;background:var(--bg-secondary);display:flex;align-items:center;justify-content:center;flex-shrink:0;">${ICON_PLACEHOLDERS[c.category]||ICON_PLACEHOLDERS.default}</div>`}
 <div class="details">
 <h4>${c.name}</h4>
-<div style="color:var(--text-muted);font-size:.85rem;">$${unitPrice.toFixed(2)} ${c.currency}${isBulk?` <span style="color:var(--verde);font-weight:700;">(-${c.bulkDiscount}%)</span>`:''}</div>
+<div style="color:var(--text-muted);font-size:.82rem;">$${unitPrice.toFixed(2)} ${c.currency}${isBulk?` <span style="color:var(--verde);font-weight:700;">(-${c.bulkDiscount}%)</span>`:''}</div>
 </div>
-<button class="btn-icon btn-danger btn-remove" onclick="removeFromCart('${c.id}')" title="Eliminar"><i class="fas fa-trash-can"></i></button>
-<div class="row-bottom">
 <div class="qty-control">
 <button onclick="updateCartQty('${c.id}',-1)"><i class="fas fa-minus"></i></button>
 <span style="font-weight:800;min-width:28px;text-align:center;font-size:1rem;">${c.qty}</span>
 <button onclick="updateCartQty('${c.id}',1)"><i class="fas fa-plus"></i></button>
 </div>
-<div class="line-total">$${(unitPrice*c.qty).toFixed(2)} ${c.currency}</div>
-</div>
+<div style="font-weight:900;font-size:1.1rem;background:linear-gradient(135deg,var(--naranja),var(--rojo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;min-width:70px;text-align:right;">$${(unitPrice*c.qty).toFixed(2)}</div>
+<button class="btn-icon btn-danger" onclick="removeFromCart('${c.id}')" title="Eliminar"><i class="fas fa-trash-can"></i></button>
 </div>`;}).join('');
 
 const totals={};
@@ -3798,85 +3795,7 @@ input,textarea,select,[contenteditable="true"]{
   .sup-actions .sup-act{width:40px;height:40px;font-size:1.05rem;}
 }
 
-/* === PATCH v20: promo buttons paint-splash, supplier icons horizontal, cart larger images === */
-
-/* Suppliers actions: forzar 100% horizontal */
-.sup-actions{display:inline-flex!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:10px;align-items:center;}
-.sup-actions .sup-act{flex:0 0 auto;display:inline-flex!important;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;color:#fff;text-decoration:none;font-size:1.05rem;}
-@media(max-width:480px){
-  .sup-actions{gap:6px!important;}
-  .sup-actions .sup-act{width:34px!important;height:34px!important;font-size:.9rem!important;}
-}
-
-/* Botones promo: diseño profesional y elegante (glass + acento dorado/teal) */
-#promoRow .promo-btn{
-  position:relative;
-  display:inline-flex;align-items:center;gap:10px;
-  border-radius:12px!important;
-  padding:11px 22px!important;
-  font-weight:600!important;
-  font-size:.9rem;
-  letter-spacing:.3px;
-  color:#fff!important;
-  text-decoration:none;
-  border:1px solid rgba(255,255,255,.14)!important;
-  background-clip:padding-box;
-  overflow:hidden;
-  isolation:isolate;
-  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  backdrop-filter:blur(6px);
-}
-#promoRow .promo-btn i{font-size:.95rem;opacity:.95;}
-#promoRow #ownStoreBtn.promo-btn{
-  background:linear-gradient(135deg,#1a1f2e 0%,#2a1f3a 100%)!important;
-  box-shadow:0 4px 14px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.08);
-}
-#promoRow #ownStoreBtn.promo-btn::before{
-  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
-  background:linear-gradient(135deg,#d4af37,#f5d76e 50%,#b8860b);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;
-  pointer-events:none;
-}
-#promoRow #affiliateBtn.promo-btn{
-  background:linear-gradient(135deg,#0f2027 0%,#1a3a4a 100%)!important;
-  box-shadow:0 4px 14px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.08);
-}
-#promoRow #affiliateBtn.promo-btn::before{
-  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;
-  background:linear-gradient(135deg,#14b8a6,#5eead4 50%,#0d9488);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;
-  pointer-events:none;
-}
-#promoRow .promo-btn::after{
-  content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
-  background:linear-gradient(115deg,transparent 0%,rgba(255,255,255,.12) 50%,transparent 100%);
-  transform:skewX(-20deg);transition:left .6s ease;pointer-events:none;
-}
-#promoRow .promo-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.35);}
-#promoRow .promo-btn:hover::after{left:120%;}
-#promoRow #ownStoreBtn.promo-btn i{color:#f5d76e;}
-#promoRow #affiliateBtn.promo-btn i{color:#5eead4;}
-
-/* ocultar promo en admin */
-body.in-admin #promoRow{display:none!important;}
-
-/* CART: imágenes más grandes y layout más limpio */
-.cart-item{display:grid!important;grid-template-columns:104px 1fr auto;gap:14px!important;align-items:center;padding:14px!important;}
-.cart-item img,.cart-item .ph-icon{width:104px!important;height:104px!important;border-radius:14px;object-fit:cover;}
-.cart-item .details{min-width:0;}
-.cart-item .details h4{white-space:normal!important;font-size:.98rem!important;line-height:1.25;margin-bottom:6px;}
-.cart-item .row-bottom{grid-column:1 / -1;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;}
-.cart-item .qty-control{order:1;}
-.cart-item .line-total{font-weight:900;font-size:1.1rem;background:linear-gradient(135deg,var(--naranja),var(--rojo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.cart-item .btn-remove{margin-left:auto;}
-@media(max-width:480px){
-  .cart-item{grid-template-columns:88px 1fr!important;}
-  .cart-item img,.cart-item .ph-icon{width:88px!important;height:88px!important;}
-}
-
-
+/* === PATCH v19: promo buttons in own row & supplier icons horizontal === */
 .promo-row{display:flex;flex-wrap:nowrap;gap:10px;align-items:center;justify-content:flex-end;margin-left:auto;}
 .promo-row:empty{display:none;}
 .sup-actions{display:inline-flex!important;flex-wrap:nowrap!important;gap:8px;align-items:center;}
