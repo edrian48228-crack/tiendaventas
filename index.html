@@ -670,9 +670,11 @@ input,textarea{-webkit-user-select:text!important;user-select:text!important;-we
 <div class="logo-icon" id="logoIcon">🛒</div>
 <div class="store-name"><span class="t1" id="storeName1">Mega</span><span class="t2" id="storeName2">Tienda</span></div>
 </div>
+<div class="promo-row" id="promoRow">
+<a class="nav-btn nav-btn-admin promo-btn" id="affiliateBtn" href="#" target="_blank" style="display:none;"><i class="fas fa-hand-holding-dollar"></i> <span>Gana dinero conmigo</span></a>
+<a class="own-store-btn promo-btn" id="ownStoreBtn" href="#" target="_blank" style="display:none;"><i class="fas fa-rocket"></i> <span>¡Quiero mi propia tienda!</span></a>
+</div>
 <nav id="mainNav">
-<a class="nav-btn nav-btn-admin" id="affiliateBtn" href="#" target="_blank" style="display:none;"><i class="fas fa-hand-holding-dollar"></i> <span>Gana dinero conmigo</span></a>
-<a class="own-store-btn" id="ownStoreBtn" href="#" target="_blank" style="display:none;"><i class="fas fa-rocket"></i> <span>¡Quiero mi propia tienda!</span></a>
 <button class="nav-btn active" onclick="showPage('store')" id="navStore"><i class="fas fa-store"></i> <span class="nav-text">Tienda</span></button>
 <button class="nav-btn" onclick="openCart()" id="navCart"><i class="fas fa-shopping-bag"></i> <span class="nav-text">Carrito</span> <span class="cart-badge" id="cartBadge">0</span></button>
 <button class="nav-btn" onclick="document.getElementById('channelSection')?.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>{var el=document.querySelector('.contact-trigger');el&&el.click();},400)" id="navContact"><i class="fas fa-headset"></i> <span class="nav-text">Contacto</span></button><button class="nav-btn" onclick="document.querySelector('.projects-section')?.scrollIntoView({behavior:'smooth',block:'start'})" id="navProjects"><i class="fas fa-folder-open"></i> <span class="nav-text">Proyectos</span></button><button class="nav-btn nav-btn-admin" onclick="showPage('admin-login')" id="navAdmin" style="position:relative;"><i class="fas fa-shield-halved"></i> <span class="nav-text">Admin</span> <span class="notif-badge" id="notifBadge" style="display:none;">0</span></button>
@@ -2004,7 +2006,7 @@ return `
 <tr>
 <td><strong>${s.name}</strong></td><td>${s.category}</td><td>${s.address}</td>
 <td style="white-space:nowrap;">
-<div class="sup-actions" style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+<div class="sup-actions" style="display:inline-flex;flex-wrap:nowrap;gap:6px;align-items:center;justify-content:flex-start;">
 ${tel?`<a href="tel:${tel}" class="sup-act sup-call" title="Llamar"><i class="fas fa-phone"></i></a>`:''}
 ${wa?`<a href="https://wa.me/${wa}" target="_blank" rel="noopener" class="sup-act sup-wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>`:''}
 ${s.email?`<a href="mailto:${s.email}" class="sup-act sup-mail" title="Correo"><i class="fas fa-envelope"></i></a>`:''}
@@ -3791,6 +3793,20 @@ input,textarea,select,[contenteditable="true"]{
 
   /* Iconos proveedor un poco más grandes en móvil */
   .sup-actions .sup-act{width:40px;height:40px;font-size:1.05rem;}
+}
+
+/* === PATCH v19: promo buttons in own row & supplier icons horizontal === */
+.promo-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:flex-end;width:100%;}
+.promo-row:empty{display:none;}
+.sup-actions{display:inline-flex!important;flex-wrap:nowrap!important;gap:8px;align-items:center;}
+.sup-actions .sup-act{flex:0 0 auto;}
+@media(max-width:640px){
+  .header .container{flex-wrap:wrap!important;}
+  #promoRow{order:3;width:100%;flex-direction:column!important;align-items:stretch!important;gap:8px!important;margin-top:8px;}
+  #promoRow .promo-btn{width:100%!important;justify-content:center!important;display:flex!important;text-align:center;font-size:.85rem!important;padding:10px 14px!important;}
+  #mainNav{order:2;width:100%;justify-content:space-between!important;}
+  .sup-actions{gap:6px!important;}
+  .sup-actions .sup-act{width:36px!important;height:36px!important;font-size:.95rem!important;}
 }
 </style>
 
