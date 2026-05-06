@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "exportedAt": "2026-05-06T19:10:45.568Z",
+  "exportedAt": "2026-05-06T19:12:18.091Z",
   "data": {
     "mt_products": [
       {
@@ -212,6 +212,32 @@
         "__lastRepoImgs": [
           "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-cc1c2346-0-1778094643937-fmvlj921.webp"
         ]
+      },
+      {
+        "id": "215b18d6-1501-4950-a935-ecfb465f0a67",
+        "name": "Placa de Samsung A32 5g",
+        "price": 7500,
+        "currency": "CUP",
+        "category": "Accesorios",
+        "condition": "nuevo",
+        "stock": 2,
+        "minStock": 5,
+        "description": "Placa para telefono samsung a32 5g",
+        "images": [
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-215b18d6-0-1778094736194-6l94ar2z.webp"
+        ],
+        "originalPrice": 8000,
+        "bulkDiscount": 15,
+        "bulkQty": 3,
+        "featured": "si",
+        "views": 0,
+        "cartAdds": 0,
+        "sales": 0,
+        "lastSaleDate": null,
+        "createdAt": "2026-05-06T19:12:13.504Z",
+        "__lastRepoImgs": [
+          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-215b18d6-0-1778094736194-6l94ar2z.webp"
+        ]
       }
     ],
     "mt_sales": [
@@ -297,6 +323,14 @@
     },
     "mt_suppliers": null,
     "mt_notifications": [
+      {
+        "id": "6058a72c-1276-4ce1-b166-de94d8f9e50d",
+        "type": "low_stock",
+        "message": "\"Placa de Samsung A32 5g\" tiene stock bajo (2)",
+        "productId": "215b18d6-1501-4950-a935-ecfb465f0a67",
+        "date": "2026-05-06T19:12:13.520Z",
+        "read": false
+      },
       {
         "id": "75da2fdd-3d80-40bd-9b3a-6b42da44f677",
         "type": "low_stock",
