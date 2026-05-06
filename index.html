@@ -3802,8 +3802,9 @@ input,textarea,select,[contenteditable="true"]{
 .sup-actions .sup-act{flex:0 0 auto;}
 @media(max-width:640px){
   .header .container{flex-wrap:wrap!important;}
-  #promoRow{order:3;width:100%;flex-direction:column!important;align-items:stretch!important;gap:8px!important;margin-top:8px;}
-  #promoRow .promo-btn{width:100%!important;justify-content:center!important;display:flex!important;text-align:center;font-size:.85rem!important;padding:10px 14px!important;}
+  #promoRow{order:1;width:100%;flex-direction:row!important;flex-wrap:wrap!important;align-items:stretch!important;gap:6px!important;margin:0 0 6px 0!important;justify-content:center!important;}
+  #promoRow .promo-btn{flex:1 1 100%!important;width:100%!important;justify-content:center!important;display:flex!important;align-items:center!important;text-align:center;font-size:.72rem!important;padding:6px 10px!important;line-height:1.1!important;border-radius:8px!important;min-height:0!important;}
+  #promoRow .promo-btn i{font-size:.8rem!important;}
   #mainNav{order:2;width:100%;justify-content:space-between!important;}
   .sup-actions{gap:6px!important;}
   .sup-actions .sup-act{width:36px!important;height:36px!important;font-size:.95rem!important;}
