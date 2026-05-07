@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "exportedAt": "2026-05-07T01:03:45.416Z",
+  "exportedAt": "2026-05-07T01:29:24.330Z",
   "data": {
     "mt_products": [
       {
@@ -121,7 +121,7 @@
           "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p5-0-1777984594268-z3sh0j4s.webp"
         ],
         "views": 412,
-        "cartAdds": 15,
+        "cartAdds": 16,
         "sales": 3,
         "lastSaleDate": "2025-03-25",
         "createdAt": "2025-01-05",
@@ -205,7 +205,7 @@
         "bulkQty": 3,
         "featured": "si",
         "views": 0,
-        "cartAdds": 1,
+        "cartAdds": 3,
         "sales": 0,
         "lastSaleDate": null,
         "createdAt": "2026-05-06T19:10:41.218Z",
@@ -231,7 +231,7 @@
         "bulkQty": 3,
         "featured": "si",
         "views": 1,
-        "cartAdds": 1,
+        "cartAdds": 2,
         "sales": 0,
         "lastSaleDate": null,
         "createdAt": "2026-05-06T19:12:13.504Z",
