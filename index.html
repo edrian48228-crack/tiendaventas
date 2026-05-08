@@ -853,7 +853,7 @@ input,textarea{-webkit-user-select:text!important;user-select:text!important;-we
 <div id="page-admin" class="page" style="display:none;">
 <div class="container section">
 <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
-<h2 style="font-family:'Orbitron',sans-serif;font-size:1.2rem;letter-spacing:1px;display:flex;align-items:center;gap:10px;"><i class="fas fa-cog" style="color:var(--naranja-brillante);"></i> PANEL DE ADMINISTRACIÓN</h2>
+<h2 style="font-family:'Orbitron',sans-serif;font-size:1.2rem;letter-spacing:1px;display:flex;align-items:center;gap:10px;"><i class="fas fa-cog" style="color:var(--naranja-brillante);"></i> ADMINISTRACIÓN</h2>
 <div style="display:flex;gap:8px;align-items:center;">
 <span id="roleIndicator" style="padding:8px 18px;border-radius:50px;font-size:.78rem;font-weight:700;"></span>
 <button class="btn btn-outline btn-sm" onclick="logoutAdmin()" style="border-radius:50px;"><i class="fas fa-right-from-bracket"></i> Salir</button>
@@ -1967,7 +1967,7 @@ pfCategory.innerHTML=config.categories.map(c=>`<option value="${c}">${c}</option
 if(id){
 const p=products.find(x=>x.id===id);
 if(p){document.getElementById('pfName').value=p.name;document.getElementById('pfPrice').value=p.price;pfCurrency.value=p.currency;pfCategory.value=p.category;document.getElementById('pfCondition').value=p.condition;document.getElementById('pfStock').value=p.stock;document.getElementById('pfMinStock').value=p.minStock;document.getElementById('pfDescription').value=p.description;if(window.setImagesBuffer)window.setImagesBuffer('pfImages',p.images||[]);else document.getElementById('pfImages').value=(p.images||[]).join('\n');document.getElementById('pfOriginalPrice').value=p.originalPrice||0;document.getElementById('pfBulkDiscount').value=p.bulkDiscount||0;document.getElementById('pfBulkQty').value=p.bulkQty||3;document.getElementById('pfFeatured').value=p.featured||'no';}
-}else{['pfName','pfPrice','pfStock','pfDescription'].forEach(id=>document.getElementById(id).value='');if(window.clearImagesBuffer)window.clearImagesBuffer('pfImages');else document.getElementById('pfImages').value='';document.getElementById('pfMinStock').value='5';document.getElementById('pfCondition').value='nuevo';document.getElementById('pfOriginalPrice').value='0';document.getElementById('pfBulkDiscount').value='0';document.getElementById('pfBulkQty').value='3';document.getElementById('pfFeatured').value='no';}
+}else{['pfName','pfPrice','pfDescription'].forEach(id=>document.getElementById(id).value='');document.getElementById('pfStock').value='1';if(window.clearImagesBuffer)window.clearImagesBuffer('pfImages');else document.getElementById('pfImages').value='';document.getElementById('pfMinStock').value='5';document.getElementById('pfCondition').value='nuevo';document.getElementById('pfOriginalPrice').value='0';document.getElementById('pfBulkDiscount').value='0';document.getElementById('pfBulkQty').value='3';document.getElementById('pfFeatured').value='no';}
 openModal('productFormModal');
 }
 function editProduct(id){openProductForm(id);}
@@ -3882,28 +3882,23 @@ input,textarea,select,[contenteditable="true"]{
      ============================================================= -->
 <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Metal+Mania&display=swap" rel="stylesheet">
 <style id="patch-v20-styles">
-/* Fuente estilo zombie/depredador para el nombre de la tienda */
-.store-name,#heroStoreName,#footerStoreName{
-  font-family:'Nosifer','Creepster','Metal Mania','Orbitron',sans-serif!important;
-  letter-spacing:2px!important;
-  text-shadow:0 0 14px rgba(255,23,68,.55),2px 2px 0 #000,0 0 28px rgba(255,109,0,.4)!important;
-}
-.store-name .t1,.store-name .t2{font-family:inherit!important;}
+/* (PATCH v21) Fuente zombie revertida — se mantiene la original Orbitron del sistema */
 
-/* Lazo VIP en botones promocionales */
+/* Solo VIP en botón "Gana dinero", SIN lazo/clip-path. Quito el lazo del "Quiero mi propia tienda" */
 .promo-btn{position:relative;overflow:visible!important;}
-#affiliateBtn.promo-btn{border-top-left-radius:0!important;border-bottom-left-radius:0!important;}
-#ownStoreBtn.promo-btn{border-top-right-radius:0!important;border-bottom-right-radius:0!important;}
-.promo-btn::before{
+#ownStoreBtn.promo-btn::before{content:none!important;display:none!important;}
+#affiliateBtn.promo-btn::before{
   content:'VIP';
-  position:absolute;top:50%;transform:translateY(-50%);
-  background:#fff;color:#b71c1c;font-weight:900;font-size:.62rem;
-  padding:3px 8px;letter-spacing:1.5px;
-  box-shadow:0 2px 8px rgba(0,0,0,.35);z-index:3;
+  position:absolute;top:-8px;right:-8px;
+  background:#fff;color:#b71c1c;font-weight:900;font-size:.55rem;
+  padding:2px 6px;letter-spacing:1.2px;border-radius:6px;
+  box-shadow:0 2px 6px rgba(0,0,0,.35);
   border:1.5px solid #b71c1c;
+  clip-path:none!important;left:auto!important;
+  z-index:3;line-height:1;
 }
-#affiliateBtn.promo-btn::before{left:-22px;border-radius:8px 0 0 8px;clip-path:polygon(0 0,100% 0,85% 50%,100% 100%,0 100%);padding-right:14px;}
-#ownStoreBtn.promo-btn::before{right:-22px;border-radius:0 8px 8px 0;clip-path:polygon(15% 0,100% 0,100% 100%,15% 100%,0 50%);padding-left:14px;}
+/* Restauro radius original (v20 los cuadraba) */
+#affiliateBtn.promo-btn,#ownStoreBtn.promo-btn{border-radius:50px!important;}
 
 /* Bordes mejorados botón gana dinero */
 #affiliateBtn.promo-btn{
@@ -3926,17 +3921,8 @@ body.admin-mode #promoRow{display:none!important;}
 .projects-section h3{margin-bottom:10px!important;font-size:1rem!important;}
 .projects-grid{gap:10px!important;}
 
-/* Header dinámico al hacer scroll en Android */
-@media(max-width:640px){
-  .header{transition:padding .25s ease;}
-  .header.scrolling .promo-row,
-  .header.scrolling #promoRow{display:none!important;}
-  .header.scrolling .logo-icon{width:52px!important;height:52px!important;font-size:1.6rem!important;transition:.25s;}
-  .header.scrolling .store-name{font-size:1.5rem!important;transition:.25s;}
-  .logo-icon,.store-name{transition:all .3s ease;}
-}
-
-/* Contadores totales visibles en móvil sin romper diseño */
+/* (PATCH v21) Anti-flicker: bloqueo cualquier transición disruptiva por scroll */
+.header,.header *{animation:none!important;}
 @media(max-width:640px){
   .admin-tabs .tab-count{
     display:inline-flex!important;position:static!important;
@@ -3969,15 +3955,7 @@ body.admin-mode #promoRow{display:none!important;}
     }
   });
 
-  /* === 2. Scroll dinámico Android: header se compacta/expande === */
-  let scrollTimer=null;
-  const header=document.getElementById('mainHeader');
-  window.addEventListener('scroll',()=>{
-    if(!header) return;
-    header.classList.add('scrolling');
-    clearTimeout(scrollTimer);
-    scrollTimer=setTimeout(()=>header.classList.remove('scrolling'),350);
-  },{passive:true});
+  /* === 2. (PATCH v21) Scroll dinámico DESACTIVADO — causaba parpadeo de los botones promocionales al subir/bajar imágenes === */
 
   /* === 3. Lightbox al hacer click en miniaturas del form de producto === */
   function renderPfThumbs(){
@@ -4049,6 +4027,230 @@ body.admin-mode #promoRow{display:none!important;}
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
   else init();
+})();
+</script>
+<!-- =============================================================
+     PATCH v21 — Stock=1, backup full, modal contacto bg, botones móvil,
+     color instalar, avatar toggle, aislamiento imágenes por repo,
+     monedas apiladas en carrito, offline total, anti-flicker promo
+     ============================================================= -->
+<style id="patch-v21-styles">
+/* Botón flotante "Instalar app" con mismo estilo que "Gana dinero conmigo" */
+#pwaInstallBtn{
+  background:linear-gradient(135deg,#00c853,#00e676,#00bfa5)!important;
+  border:2px solid rgba(255,255,255,.25)!important;
+  box-shadow:0 4px 18px rgba(0,200,83,.45),inset 0 0 0 1px rgba(255,255,255,.15)!important;
+  color:#fff!important;font-weight:800!important;
+}
+
+/* Botones grandes en móvil → reducir */
+@media(max-width:640px){
+  button[onclick*="savePatchV16"],
+  button[onclick*="resetSystemFull"],
+  button[onclick*="saveBackupFull"],
+  button[onclick*="restoreBackupFull"]{
+    padding:9px 14px!important;font-size:.78rem!important;
+    border-radius:30px!important;width:100%;justify-content:center;
+  }
+  /* Modal contacto en android no demasiado grande */
+  #contactModal .modal{max-width:94vw!important;padding:18px!important;}
+}
+
+/* Imagen de fondo personalizable del modal de contacto (cubre todo el modal) */
+#contactModal .contact-bg.has-bg{opacity:1!important;}
+#contactModal .contact-bg.has-bg img{opacity:.30!important;}
+
+/* Carrito: monedas distintas APILADAS (una debajo de la otra) */
+.cart-total-value{display:flex!important;flex-direction:column!important;align-items:flex-end!important;gap:4px;}
+.cart-total-value .cur-row{display:block;}
+</style>
+
+<script id="patch-v21-script">
+(function(){
+  /* ================================================================
+     1) AISLAMIENTO DE IMÁGENES Y DATOS POR REPOSITORIO
+        Cada repo tiene su propio namespace en localStorage para
+        que el sistema A no muestre las imágenes del sistema B.
+     ================================================================ */
+  function detectRepoKey(){
+    try{
+      const auto = (typeof ghAutoDetectRepo==='function') ? ghAutoDetectRepo() : null;
+      const c = (typeof ghGetCreds==='function') ? ghGetCreds() : null;
+      const owner = (c&&c.owner) || (auto&&auto.owner) || '';
+      const repo  = (c&&c.repo)  || (auto&&auto.repo)  || '';
+      if(owner && repo) return (owner+'__'+repo).toLowerCase().replace(/[^a-z0-9_-]/g,'_');
+    }catch(_){}
+    // fallback al pathname para distinguir despliegues
+    return ('local__'+location.host+location.pathname).toLowerCase().replace(/[^a-z0-9_-]/g,'_');
+  }
+  const REPO_KEY = detectRepoKey();
+  window.__REPO_KEY = REPO_KEY;
+
+  // Migración: separar caché de imágenes y store por repo (sin tocar mt_* de configuración)
+  const IMG_CACHE_KEY = 'mt_img_cache__'+REPO_KEY;
+  const REPO_MARK_KEY = 'mt_repo_marker';
+  const prevMark = localStorage.getItem(REPO_MARK_KEY);
+  if(prevMark && prevMark !== REPO_KEY){
+    // Cambiamos de repo: limpiar caches de IMÁGENES y publicver para no mezclar
+    Object.keys(localStorage).filter(k=>/^mt_img_cache__/.test(k)&&k!==IMG_CACHE_KEY).forEach(()=>{});
+    localStorage.removeItem('mt_gh_publicver');
+    localStorage.removeItem('mt_gh_publichash');
+  }
+  localStorage.setItem(REPO_MARK_KEY, REPO_KEY);
+
+  // Forzar que resolveImgPath de imágenes relativas use SOLO el repo actual
+  if(typeof window.resolveImgPath==='function'){
+    const _orig = window.resolveImgPath;
+    window.resolveImgPath = function(u){
+      if(!u) return u;
+      const s = String(u);
+      // Si es URL absoluta a OTRO repo del mismo owner, ignorar y devolver placeholder
+      try{
+        const c = (typeof ghGetCreds==='function') ? ghGetCreds() : null;
+        const auto = (typeof ghAutoDetectRepo==='function') ? ghAutoDetectRepo() : null;
+        const repo = (c&&c.repo) || (auto&&auto.repo) || '';
+        if(repo && /raw\.githubusercontent\.com/.test(s)){
+          const m = s.match(/raw\.githubusercontent\.com\/[^/]+\/([^/]+)\//);
+          if(m && m[1] && m[1].toLowerCase()!==repo.toLowerCase()){
+            return ''; // imagen pertenece a otro repo: NO mostrarla
+          }
+        }
+      }catch(_){}
+      return _orig.apply(this, arguments);
+    };
+  }
+
+  /* ================================================================
+     2) BACKUP COMPLETO DEL SISTEMA (config + productos + imágenes)
+        Disponible desde la administración del CREADOR.
+        Genera un .json descargable y permite restaurarlo.
+     ================================================================ */
+  window.saveBackupFull = async function(){
+    try{
+      const dump = {};
+      Object.keys(localStorage).filter(k=>/^mt_/.test(k)).forEach(k=>{ dump[k]=localStorage.getItem(k); });
+      const blob = new Blob([JSON.stringify({_v:21,_repo:REPO_KEY,_at:new Date().toISOString(),data:dump},null,2)],{type:'application/json'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'backup_'+REPO_KEY+'_'+Date.now()+'.json';
+      document.body.appendChild(a); a.click(); a.remove();
+      if(typeof showToast==='function') showToast('<i class="fas fa-check-circle"></i> Backup descargado');
+    }catch(e){ alert('Error backup: '+e.message); }
+  };
+  window.restoreBackupFull = function(){
+    const inp = document.createElement('input');
+    inp.type='file'; inp.accept='application/json,.json';
+    inp.onchange = (ev)=>{
+      const f = ev.target.files[0]; if(!f) return;
+      const r = new FileReader();
+      r.onload = ()=>{
+        try{
+          const obj = JSON.parse(r.result);
+          const data = obj && obj.data ? obj.data : obj;
+          Object.keys(data).forEach(k=>{ if(/^mt_/.test(k)) localStorage.setItem(k, data[k]); });
+          if(typeof showToast==='function') showToast('<i class="fas fa-check-circle"></i> Backup restaurado');
+          setTimeout(()=>location.reload(), 600);
+        }catch(e){ alert('JSON inválido: '+e.message); }
+      };
+      r.readAsText(f);
+    };
+    inp.click();
+  };
+
+  /* ================================================================
+     3) Inyectar botones de Backup en la sección del CREADOR
+     ================================================================ */
+  function injectBackupButtons(){
+    const panel = document.getElementById('panel-creator-config');
+    if(!panel || document.getElementById('v21-backup-row')) return;
+    const sec = document.createElement('div');
+    sec.id='v21-backup-row';
+    sec.style.marginTop='16px';
+    sec.innerHTML=`
+      <h4 style="margin:6px 0 10px;"><i class="fas fa-floppy-disk" style="color:var(--cyan)"></i> Respaldo del sistema completo</h4>
+      <p style="font-size:.82rem;color:var(--text-muted);margin:0 0 10px;">Guarda TODO (configuración, productos, imágenes en cache, fuentes y recursos) en un archivo. Funciona en Windows y Android.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="saveBackupFull()" style="border-radius:30px;"><i class="fas fa-download"></i> Descargar backup</button>
+        <button class="btn btn-secondary" onclick="restoreBackupFull()" style="border-radius:30px;"><i class="fas fa-upload"></i> Restaurar desde backup</button>
+      </div>
+    `;
+    const target = panel.querySelector('.creator-section') || panel;
+    target.appendChild(sec);
+  }
+  if(typeof window.setupAdminUI==='function'){
+    const _o = window.setupAdminUI;
+    window.setupAdminUI = function(){ const r=_o.apply(this,arguments); setTimeout(injectBackupButtons,80); return r; };
+  }
+  document.addEventListener('DOMContentLoaded', ()=> setTimeout(injectBackupButtons,400));
+
+  /* ================================================================
+     4) IMAGEN DE FONDO DEL MODAL DE CONTACTO DEL CREADOR
+        Usa config.contactBgImage (ya existe el campo en creator config).
+        Lo aplicamos como fondo del modal completo (no sólo decoración).
+     ================================================================ */
+  function applyContactBg(){
+    const bg = document.getElementById('contactBg');
+    if(!bg) return;
+    const url = (window.config && config.contactBgImage) || '';
+    bg.classList.toggle('has-bg', !!url);
+    bg.innerHTML = url
+      ? `<img src="${url}" alt=""><div class="contact-bg-overlay"></div>`
+      : `<div class="contact-bg-overlay"></div>`;
+  }
+  const _openModal = window.openModal;
+  if(typeof _openModal==='function'){
+    window.openModal = function(id){
+      const r = _openModal.apply(this,arguments);
+      if(id==='contactModal') applyContactBg();
+      return r;
+    };
+  }
+  if(typeof window.applyConfig==='function'){
+    const _o = window.applyConfig;
+    window.applyConfig = function(){ const r=_o.apply(this,arguments); applyContactBg(); return r; };
+  }
+
+  /* ================================================================
+     5) CARRITO: monedas distintas APILADAS (una debajo de la otra)
+        Sobrescribimos la celda del total después de cada renderCart.
+     ================================================================ */
+  function stackCartCurrencies(){
+    const el = document.querySelector('#cartFooter .cart-total-value');
+    if(!el) return;
+    const txt = el.textContent || '';
+    if(!txt.trim()) return;
+    // dividir por dos espacios (formato actual)
+    const parts = txt.split(/\s{2,}/).map(s=>s.trim()).filter(Boolean);
+    if(parts.length<=1){ el.innerHTML = `<span class="cur-row">${parts[0]||''}</span>`; return; }
+    el.innerHTML = parts.map(p=>`<span class="cur-row">${p}</span>`).join('');
+  }
+  if(typeof window.renderCart==='function'){
+    const _r = window.renderCart;
+    window.renderCart = function(){ const r = _r.apply(this,arguments); setTimeout(stackCartCurrencies,10); return r; };
+  }
+
+  /* ================================================================
+     6) CHECKBOX "Desactivar avatar" — ya existía cfgHideAvatar.
+        Garantizamos que se aplique también con applyConfig.
+     ================================================================ */
+  function applyAvatarToggle(){
+    const a = document.getElementById('avatarFloat');
+    if(!a) return;
+    a.style.display = (window.config && config.hideAvatar) ? 'none' : '';
+  }
+  document.addEventListener('DOMContentLoaded', applyAvatarToggle);
+  if(typeof window.applyConfig==='function'){
+    const _o2 = window.applyConfig;
+    window.applyConfig = function(){ const r=_o2.apply(this,arguments); applyAvatarToggle(); return r; };
+  }
+
+  /* ================================================================
+     7) Anti-flicker definitivo de los botones promo durante scroll/uploads
+     ================================================================ */
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const h = document.getElementById('mainHeader');
+    if(h) h.classList.remove('scrolling');
+  });
 })();
 </script>
 </body>

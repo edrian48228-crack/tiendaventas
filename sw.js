@@ -1,7 +1,7 @@
 /* ============================================================
    MegaTienda Service Worker — Offline TOTAL + Auto-update (v17)
    ============================================================ */
-const VERSION = 'mt-v1.0.21-promo-desktop';
+const VERSION = 'mt-v1.0.22-offline-total';
 const CACHE_STATIC  = 'mt-static-' + VERSION;
 const CACHE_RUNTIME = 'mt-runtime-' + VERSION;
 const CACHE_IMG     = 'mt-img-' + VERSION;
@@ -107,13 +107,23 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // CSS / JS / Fuentes / CDN → StaleWhileRevalidate
+  // CSS / JS / Fuentes / CDN → CacheFirst (offline total para Windows y Android)
   if (isFontOrStyleOrScript(req) || ['fonts.googleapis.com','fonts.gstatic.com','cdnjs.cloudflare.com'].includes(url.hostname)) {
     event.respondWith((async () => {
       const cache = await caches.open(CACHE_RUNTIME);
       const hit = await cache.match(req);
-      const fetchPromise = fetch(req).then(res => { if (res && res.ok) cache.put(req, res.clone()); return res; }).catch(()=>hit);
-      return hit || fetchPromise;
+      if (hit) {
+        // refresco silencioso en segundo plano
+        fetch(req).then(res => { if (res && (res.ok||res.type==='opaque')) cache.put(req, res.clone()).catch(()=>{}); }).catch(()=>{});
+        return hit;
+      }
+      try{
+        const res = await fetch(req);
+        if (res && (res.ok||res.type==='opaque')) cache.put(req, res.clone()).catch(()=>{});
+        return res;
+      }catch(e){
+        return hit || new Response('', {status:503});
+      }
     })());
     return;
   }
