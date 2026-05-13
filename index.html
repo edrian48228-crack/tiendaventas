@@ -280,26 +280,19 @@ h1,h2,h3,h4,h5,h6,.section-title,.admin-tabs button,.nav-btn,.footer-col h4,.cre
 
 /* ===== ADMIN ===== */
 .admin-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:24px;background:var(--bg-secondary);padding:8px;border-radius:16px;border:1px solid var(--glass-border);}
-/* Ocultar header de portada en admin en TODOS los dispositivos */
-body.admin-mode .header{display:none!important;}
-body.admin-mode #page-admin{padding-top:0!important;}
-/* adminFixedBar: título + botón salir + tabs, todo fijo junto */
+/* Ocultar header de portada en admin — solo mobile */
+@media(max-width:640px){
+  body.admin-mode .header{display:none!important;}
+  body.admin-mode #page-admin{padding-top:0!important;}
+}
+/* adminFixedBar: en desktop es solo un wrapper visual normal */
 #adminFixedBar{
-  position:sticky;top:0;z-index:200;
-  background:var(--bg-secondary);
-  border-radius:0 0 16px 16px;
-  margin-left:-20px;margin-right:-20px;
-  padding-bottom:6px;
-  border-bottom:1px solid var(--glass-border);
+  display:contents;
 }
-#page-admin .admin-tabs{
-  margin:0;padding:6px 8px 8px;
-  border:none;border-radius:0;
-  background:transparent;
-  margin-bottom:0;
-}
+/* En mobile: todo el bloque título+tabs queda fijo */
 @media(max-width:640px){
   #adminFixedBar{
+    display:block;
     position:fixed!important;top:0!important;left:0!important;right:0!important;
     margin:0!important;border-radius:0 0 14px 14px!important;
     background:#0c0c14!important;
@@ -308,10 +301,15 @@ body.admin-mode #page-admin{padding-top:0!important;}
     z-index:9999!important;
     padding-bottom:4px!important;
   }
-  /* Ocultar cuando page-admin no es visible */
   #page-admin[style*="display:none"] #adminFixedBar{display:none!important;}
-  /* Compensar la altura del bar fijo (~110px = titulo ~38px + tabs ~58px + padding) */
   #adminContent{padding-top:116px!important;}
+  /* En mobile los tabs dentro del fixedBar sin borde propio */
+  #adminFixedBar .admin-tabs{
+    margin:0!important;padding:6px 8px 8px!important;
+    border:none!important;border-radius:0!important;
+    background:transparent!important;
+    margin-bottom:0!important;
+  }
 }
 .admin-tabs button{padding:10px 18px;border-radius:12px;color:var(--text-secondary);background:transparent;font-weight:700;transition:all .3s;font-size:.84rem;border:none;display:inline-flex;align-items:center;gap:6px;}
 .admin-tabs button i{font-size:.9rem;}
