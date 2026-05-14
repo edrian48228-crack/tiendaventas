@@ -733,6 +733,21 @@ input,textarea{-webkit-user-select:text!important;user-select:text!important;-we
 </nav>
 </div>
 </header>
+<!-- Botón flotante ocultar/mostrar botones promo — solo mobile -->
+<div id="promoCollapseBar" style="display:none;position:relative;z-index:50;">
+  <button id="promoCollapseBtn" onclick="togglePromoBar()" style="
+    width:100%;border:none;cursor:pointer;
+    background:linear-gradient(90deg,rgba(255,109,0,.12),rgba(255,23,68,.08));
+    border-bottom:1px solid rgba(255,109,0,.2);
+    padding:5px 16px;
+    display:flex;align-items:center;justify-content:space-between;
+    font-size:.72rem;font-weight:700;color:var(--text-muted);
+    letter-spacing:.5px;
+  ">
+    <span id="promoCollapseLbl"><i class="fas fa-eye-slash"></i> Ocultar promociones</span>
+    <i class="fas fa-chevron-up" id="promoCollapseIcon" style="font-size:.65rem;transition:transform .3s;"></i>
+  </button>
+</div>
 
 <!-- FLOATING AVATAR -->
 <div class="avatar-float" id="avatarFloat" onclick="window.scrollTo({top:0,behavior:'smooth'})">
@@ -2551,6 +2566,48 @@ window.open(`https://wa.me/${config.creatorWhatsapp.replace(/[^0-9]/g,'')}?text=
 }
 
 // ===== IMPORT/EXPORT =====
+// ===== TOGGLE BOTONES PROMO (mobile) =====
+(function(){
+  let _promoVisible=true;
+
+  function updatePromoCollapseBar(){
+    // Solo mostrar la barra en mobile y cuando hay al menos un botón promo activo
+    const isMobile=window.innerWidth<=640;
+    const hasVisible=[document.getElementById('ownStoreBtn'),document.getElementById('affiliateBtn')]
+      .some(b=>b&&b.style.display!=='none'&&b.href&&b.href!=='#');
+    const bar=document.getElementById('promoCollapseBar');
+    if(bar) bar.style.display=(isMobile&&hasVisible)?'block':'none';
+  }
+
+  window.togglePromoBar=function(){
+    _promoVisible=!_promoVisible;
+    const row=document.getElementById('promoRow');
+    const lbl=document.getElementById('promoCollapseLbl');
+    const icon=document.getElementById('promoCollapseIcon');
+    if(row){
+      if(_promoVisible){
+        row.classList.remove('promo-hidden');
+      } else {
+        row.classList.add('promo-hidden');
+      }
+    }
+    if(lbl) lbl.innerHTML=_promoVisible
+      ?'<i class="fas fa-eye-slash"></i> Ocultar promociones'
+      :'<i class="fas fa-eye"></i> Mostrar promociones';
+    if(icon) icon.style.transform=_promoVisible?'':'rotate(180deg)';
+  };
+
+  // Observar cambios de visibilidad de los botones promo
+  window.addEventListener('resize', updatePromoCollapseBar);
+  // Hook sobre applyConfig para re-evaluar cuando cambia config
+  const _prevAC=window.applyConfig;
+  window.applyConfig=function(){
+    if(_prevAC) _prevAC.apply(this,arguments);
+    setTimeout(updatePromoCollapseBar,100);
+  };
+  setTimeout(updatePromoCollapseBar,600);
+})();
+
 // ===== IMPORTACIÓN MASIVA DESDE CARPETA =====
 let _bulkFiles = []; // archivos pendientes de confirmar
 
@@ -2742,7 +2799,49 @@ async function confirmBulkImport(){
 }
 
 function exportData(){const data=JSON.stringify({products,sales,config,suppliers,notifications,visits},null,2);const blob=new Blob([data],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='megatienda-datos.json';a.click();}
-function importData(){const file=document.getElementById('importFile').files[0];if(!file){alert('Seleccione JSON');return;}const reader=new FileReader();reader.onload=function(e){try{const data=JSON.parse(e.target.result);if(data.products){products=data.products;products.forEach(p=>{if(p.originalPrice===undefined)p.originalPrice=0;if(p.bulkDiscount===undefined)p.bulkDiscount=0;if(p.bulkQty===undefined)p.bulkQty=3;if(p.featured===undefined)p.featured='no';});save('mt_products',products);}if(data.sales){sales=data.sales;save('mt_sales',sales);}if(data.config){config={...DEFAULT_CONFIG,...data.config};save('mt_config',config);}if(data.suppliers){suppliers=data.suppliers;save('mt_suppliers',suppliers);}if(data.notifications){notifications=data.notifications;save('mt_notifications',notifications);}if(data.visits){visits=data.visits;save('mt_visits',visits);}applyConfig();renderProducts();if(isAdmin){renderAdminProducts();renderSuppliers();renderDashboard();renderNotifications();}showToast('<i class="fas fa-check-circle"></i> Datos importados');}catch{alert('❌ JSON no válido');}};reader.readAsText(file);}
+function importData(){
+  const fileInput=document.getElementById('importFile');
+  const file=fileInput.files[0];
+  if(!file){alert('Selecciona un archivo JSON primero');return;}
+  const reader=new FileReader();
+  reader.onload=function(e){
+    try{
+      // Quitar BOM y espacios que algunos editores agregan
+      const txt=e.target.result.replace(/^\uFEFF/,'').trim();
+      const data=JSON.parse(txt);
+      const imported=[];
+      if(data.products&&Array.isArray(data.products)){
+        products=data.products;
+        products.forEach(p=>{
+          if(p.originalPrice===undefined)p.originalPrice=0;
+          if(p.bulkDiscount===undefined)p.bulkDiscount=0;
+          if(p.bulkQty===undefined)p.bulkQty=3;
+          if(p.featured===undefined)p.featured='no';
+          if(!p.images)p.images=[];
+        });
+        save('mt_products',products);
+        imported.push('productos ('+products.length+')');
+      }
+      if(data.sales&&Array.isArray(data.sales)){sales=data.sales;save('mt_sales',sales);imported.push('ventas');}
+      if(data.config&&typeof data.config==='object'){config=Object.assign({},DEFAULT_CONFIG,data.config);save('mt_config',config);imported.push('config');}
+      if(data.suppliers&&Array.isArray(data.suppliers)){suppliers=data.suppliers;save('mt_suppliers',suppliers);imported.push('proveedores');}
+      if(data.notifications&&Array.isArray(data.notifications)){notifications=data.notifications;save('mt_notifications',notifications);imported.push('notificaciones');}
+      if(data.visits){visits=data.visits;save('mt_visits',visits);imported.push('visitas');}
+      if(data.projects&&Array.isArray(data.projects)){projects=data.projects;save('mt_projects',projects);imported.push('proyectos');}
+      applyConfig();
+      renderProducts();
+      if(isAdmin){renderAdminProducts();renderSuppliers();renderDashboard();renderNotifications();}
+      if(typeof renderProjects==='function')renderProjects();
+      if(typeof updateTabCounts==='function')updateTabCounts();
+      // Reset input para poder reimportar el mismo archivo
+      fileInput.value='';
+      showToast('<i class="fas fa-check-circle"></i> Importado: '+imported.join(', '));
+    }catch(err){
+      alert('Error al importar:\n'+err.message+'\n\nAseg\xfarate de que el archivo sea el JSON exportado por este sistema.');
+    }
+  };
+  reader.readAsText(file);
+}
 function downloadSystem(){const a=document.createElement('a');const blob=new Blob(['<!DOCTYPE html>'+document.documentElement.outerHTML],{type:'text/html'});a.href=URL.createObjectURL(blob);a.download='MegaTienda.html';a.click();}
 
 // ===== MODALS =====
@@ -4259,6 +4358,7 @@ input,textarea,select,[contenteditable="true"]{
 
 /* === PATCH v19: promo buttons in own row & supplier icons horizontal === */
 .promo-row{display:flex;flex-wrap:nowrap;gap:10px;align-items:center;justify-content:flex-end;margin-left:auto;}
+.promo-row.promo-hidden{display:none!important;}
 .promo-row:empty{display:none;}
 .sup-actions{display:inline-flex!important;flex-wrap:nowrap!important;gap:8px;align-items:center;}
 .sup-actions .sup-act{flex:0 0 auto;}
