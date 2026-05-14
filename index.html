@@ -175,7 +175,7 @@ h1,h2,h3,h4,h5,h6,.section-title,.admin-tabs button,.nav-btn,.footer-col h4,.cre
 .rec-track:hover{animation-play-state:paused;}
 .rec-card{min-width:220px;background:var(--bg-card);border-radius:16px;overflow:hidden;flex-shrink:0;border:1px solid var(--glass-border);transition:all .3s;cursor:pointer;}
 .rec-card:hover{border-color:var(--glow-border);transform:translateY(-6px);box-shadow:var(--neon-naranja);}
-.rec-card img{width:100%;height:150px;object-fit:cover;}
+.rec-card img{width:100%;height:150px;object-fit:contain;background:var(--bg-secondary);}
 .rec-card .rec-info{padding:14px;}
 .rec-card .rec-info h4{font-size:.88rem;margin-bottom:5px;color:var(--text-primary);font-weight:600;}
 .rec-card .rec-info .price{color:var(--naranja-brillante);font-weight:900;font-size:1.1rem;}
@@ -1026,13 +1026,23 @@ input,textarea{-webkit-user-select:text!important;user-select:text!important;-we
 </div>
 </div>
 <div class="admin-search">
-<select id="adminNotifFilter" onchange="renderNotifications()" style="max-width:220px;">
-<option value="">Todas</option>
+<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+<select id="adminNotifFilter" onchange="renderNotifications()" style="max-width:200px;">
+<option value="">Todos los tipos</option>
 <option value="low_stock">Stock bajo</option>
 <option value="slow_sale">Venta lenta</option>
 <option value="best_seller">Más vendido</option>
 <option value="license_expiry">Licencia</option>
 </select>
+<select id="adminNotifAge" onchange="renderNotifications()" style="max-width:200px;">
+<option value="">Cualquier fecha</option>
+<option value="today">Hoy</option>
+<option value="week">Últimos 7 días</option>
+<option value="old">Más de 7 días</option>
+<option value="month_old">Más de 30 días</option>
+</select>
+<button class="btn btn-danger btn-sm" onclick="deleteOldNotifications()" style="border-radius:50px;white-space:nowrap;"><i class="fas fa-broom"></i> Limpiar antiguas</button>
+</div>
 </div>
 <div id="notificationsList"></div>
 </div>
@@ -1830,7 +1840,12 @@ openModal('productDetailModal');
 
 // ===== CART =====
 function addToCart(id){
-const p=products.find(x=>x.id===id);if(!p||p.stock<=0)return;
+const p=products.find(x=>x.id===id);
+if(!p) return;
+if(p.stock<=0){
+  showToast('<i class="fas fa-ban"></i> "'+p.name+'" está agotado');
+  return;
+}
 p.cartAdds++;save('mt_products',products);
 const existing=cart.find(c=>c.id===id);
 if(existing){if(existing.qty<p.stock)existing.qty++;else return;}
@@ -2172,7 +2187,20 @@ generateNotifications();
 
 function renderNotifications(){
 const filter=document.getElementById('adminNotifFilter')?document.getElementById('adminNotifFilter').value:'';
-const filtered=filter?notifications.filter(n=>n.type===filter):notifications;
+const ageFilter=document.getElementById('adminNotifAge')?document.getElementById('adminNotifAge').value:'';
+const now=Date.now();
+const DAY=86400000;
+let filtered=filter?notifications.filter(n=>n.type===filter):notifications;
+if(ageFilter){
+  filtered=filtered.filter(n=>{
+    const age=now-new Date(n.date).getTime();
+    if(ageFilter==='today') return age<DAY;
+    if(ageFilter==='week') return age<7*DAY;
+    if(ageFilter==='old') return age>=7*DAY;
+    if(ageFilter==='month_old') return age>=30*DAY;
+    return true;
+  });
+}
 const iconMap={low_stock:'<i class="fas fa-triangle-exclamation"></i>',slow_sale:'<i class="fas fa-clock"></i>',best_seller:'<i class="fas fa-trophy"></i>',license_expiry:'<i class="fas fa-key"></i>'};
 document.getElementById('notificationsList').innerHTML=filtered.length?filtered.map(n=>`
 <div class="notification notif-${n.type} ${n.read?'':'notif-unread'}">
@@ -2181,6 +2209,14 @@ document.getElementById('notificationsList').innerHTML=filtered.length?filtered.
 <span style="font-size:.7rem;color:var(--text-muted);white-space:nowrap;">${new Date(n.date).toLocaleDateString('es')} · ${new Date(n.date).toLocaleTimeString('es',{hour:'2-digit',minute:'2-digit'})}</span>
 <button class="btn-icon btn-secondary btn-sm" onclick="event.stopPropagation();deleteNotification('${n.id}')" title="Eliminar" style="margin-left:6px;"><i class="fas fa-xmark"></i></button>
 </div>`).join(''):'<p style="text-align:center;color:var(--text-muted);padding:40px;"><i class="fas fa-bell-slash" style="font-size:2rem;display:block;margin-bottom:12px;opacity:.3;"></i>No hay notificaciones</p>';
+}
+function deleteOldNotifications(){
+  const cutoff=Date.now()-7*86400000;
+  const before=notifications.length;
+  notifications=notifications.filter(n=>new Date(n.date).getTime()>=cutoff);
+  save('mt_notifications',notifications);
+  renderNotifications();updateNotifBadge();updateTabCounts();
+  showToast('<i class="fas fa-broom"></i> '+(before-notifications.length)+' notificación(es) antiguas eliminadas');
 }
 function markAllNotifRead(){notifications.forEach(n=>n.read=true);save('mt_notifications',notifications);renderNotifications();updateNotifBadge();showToast('<i class="fas fa-check"></i> Todas leídas');}
 function deleteNotification(id){notifications=notifications.filter(n=>n.id!==id);save('mt_notifications',notifications);renderNotifications();updateNotifBadge();}
