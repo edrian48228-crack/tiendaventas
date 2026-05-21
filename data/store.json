@@ -1,245 +1,8 @@
 {
   "version": 2,
-  "exportedAt": "2026-05-19T17:51:34.921Z",
+  "exportedAt": "2026-05-21T21:57:12.908Z",
   "data": {
-    "mt_products": [
-      {
-        "id": "p1",
-        "name": "Smartphone Samsung A1+",
-        "price": 27000,
-        "currency": "CUP",
-        "category": "Electrónica",
-        "condition": "usado",
-        "stock": 2,
-        "minStock": 3,
-        "description": "Smartphone de última generación con cámara de 108MP y pantalla AMOLED. 6 con 128. Incluye una inteligencia artificial Offline. SOLO 7 MESES DE USO",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p1-0-1777984549243-shca8t7d.webp"
-        ],
-        "views": 245,
-        "cartAdds": 42,
-        "sales": 18,
-        "lastSaleDate": "2025-03-28",
-        "createdAt": "2025-01-15",
-        "originalPrice": 30000,
-        "bulkDiscount": 10,
-        "bulkQty": 3,
-        "featured": "si",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p1-0-1777984549243-shca8t7d.webp"
-        ]
-      },
-      {
-        "id": "p2",
-        "name": "Puertos de Telefonos Moviles",
-        "price": 200,
-        "currency": "CUP",
-        "category": "Accesorios",
-        "condition": "nuevo",
-        "stock": 30,
-        "minStock": 5,
-        "description": "Puertos para telefonos moviles tipo b y tipo c",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p2-0-1777985688086-06g4c1st.webp"
-        ],
-        "views": 190,
-        "cartAdds": 35,
-        "sales": 22,
-        "lastSaleDate": "2025-03-30",
-        "createdAt": "2025-01-20",
-        "originalPrice": 220,
-        "bulkDiscount": 15,
-        "bulkQty": 2,
-        "featured": "no",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p2-0-1777985688086-06g4c1st.webp"
-        ]
-      },
-      {
-        "id": "p3",
-        "name": "Smartphone Huawei Nova 5T",
-        "price": 35000,
-        "currency": "CUP",
-        "category": "Electrónica",
-        "condition": "usado",
-        "stock": 2,
-        "minStock": 10,
-        "description": "Telefonos de uso en perfecto estado. Solo detallito el borde de carmara frontal que no afecta la foto.  Incluye una inteligencia artificial offline",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p3-0-1777985690442-0u1rji2c.webp"
-        ],
-        "views": 156,
-        "cartAdds": 29,
-        "sales": 35,
-        "lastSaleDate": "2025-03-29",
-        "createdAt": "2025-02-01",
-        "originalPrice": 40000,
-        "bulkDiscount": 20,
-        "bulkQty": 5,
-        "featured": "no",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p3-0-1777985690442-0u1rji2c.webp"
-        ]
-      },
-      {
-        "id": "p4",
-        "name": "Cargador de Motorina 72V/28A",
-        "price": 12,
-        "currency": "USD",
-        "category": "Dulces",
-        "condition": "nuevo",
-        "stock": 100,
-        "minStock": 15,
-        "description": "Caja de chocolates belgas artesanales - 12 unidades",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p4-0-1777984587975-85c3hopb.webp"
-        ],
-        "views": 321,
-        "cartAdds": 59,
-        "sales": 45,
-        "lastSaleDate": "2025-03-30",
-        "createdAt": "2025-02-10",
-        "originalPrice": 18,
-        "bulkDiscount": 10,
-        "bulkQty": 3,
-        "featured": "si",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p4-0-1777984587975-85c3hopb.webp"
-        ]
-      },
-      {
-        "id": "p5",
-        "name": "Smartphone Realme Note 50",
-        "price": 45000,
-        "currency": "USD",
-        "category": "Electrónica",
-        "condition": "usado",
-        "stock": 5,
-        "minStock": 2,
-        "description": "Tiene todos sus accesorios. 8 de RAM y 128 de almacenamiento. Trae una inteligencia Offline. SOLO 6 MESES DE USO",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p5-0-1777984594268-z3sh0j4s.webp"
-        ],
-        "views": 412,
-        "cartAdds": 16,
-        "sales": 3,
-        "lastSaleDate": "2025-03-25",
-        "createdAt": "2025-01-05",
-        "originalPrice": 50000,
-        "bulkDiscount": 0,
-        "bulkQty": 3,
-        "featured": "si",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p5-0-1777984594268-z3sh0j4s.webp"
-        ]
-      },
-      {
-        "id": "p7",
-        "name": "Puertos de telefonos celulares",
-        "price": 200,
-        "currency": "USD",
-        "category": "Electrónica",
-        "condition": "reparado",
-        "stock": 8,
-        "minStock": 3,
-        "description": "Puertos para telefonos celulares",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p7-0-1777985631440-lqytija6.webp"
-        ],
-        "views": 167,
-        "cartAdds": 20,
-        "sales": 10,
-        "lastSaleDate": "2025-03-27",
-        "createdAt": "2025-03-01",
-        "originalPrice": 220,
-        "bulkDiscount": 5,
-        "bulkQty": 2,
-        "featured": "no",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p7-0-1777985631440-lqytija6.webp"
-        ]
-      },
-      {
-        "id": "p8",
-        "name": "Smartphone Relme Note 50",
-        "price": 48000,
-        "currency": "CUP",
-        "category": "Accesorios",
-        "condition": "nuevo",
-        "stock": 20,
-        "minStock": 5,
-        "description": "Telefonos movil con inteligencia offline incluida. 8 con 256.",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p8-0-1777984598071-aiq9i8oi.webp",
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p8-1-1778094434984-5o0qodgc.webp"
-        ],
-        "views": 78,
-        "cartAdds": 9,
-        "sales": 5,
-        "lastSaleDate": "2025-03-20",
-        "createdAt": "2025-03-05",
-        "originalPrice": 55000,
-        "bulkDiscount": 0,
-        "bulkQty": 3,
-        "featured": "no",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p8-0-1777984598071-aiq9i8oi.webp",
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-p8-1-1778094434984-5o0qodgc.webp"
-        ]
-      },
-      {
-        "id": "cc1c2346-a6af-4ab8-91e1-3f1f5e18fcb1",
-        "name": "Pantallas para moviles",
-        "price": 10000,
-        "currency": "CUP",
-        "category": "Accesorios",
-        "condition": "nuevo",
-        "stock": 10,
-        "minStock": 5,
-        "description": "Pantallas para todo tipo de telefonos moviles",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-cc1c2346-0-1778094643937-fmvlj921.webp"
-        ],
-        "originalPrice": 12000,
-        "bulkDiscount": 10,
-        "bulkQty": 3,
-        "featured": "si",
-        "views": 0,
-        "cartAdds": 4,
-        "sales": 0,
-        "lastSaleDate": null,
-        "createdAt": "2026-05-06T19:10:41.218Z",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-cc1c2346-0-1778094643937-fmvlj921.webp"
-        ]
-      },
-      {
-        "id": "215b18d6-1501-4950-a935-ecfb465f0a67",
-        "name": "Placa de Samsung A32 5g",
-        "price": 7500,
-        "currency": "CUP",
-        "category": "Accesorios",
-        "condition": "nuevo",
-        "stock": 2,
-        "minStock": 5,
-        "description": "Placa para telefono samsung a32 5g",
-        "images": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-215b18d6-0-1778094736194-6l94ar2z.webp"
-        ],
-        "originalPrice": 8000,
-        "bulkDiscount": 15,
-        "bulkQty": 3,
-        "featured": "si",
-        "views": 1,
-        "cartAdds": 2,
-        "sales": 0,
-        "lastSaleDate": null,
-        "createdAt": "2026-05-06T19:12:13.504Z",
-        "__lastRepoImgs": [
-          "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/prod-215b18d6-0-1778094736194-6l94ar2z.webp"
-        ]
-      }
-    ],
+    "mt_products": [],
     "mt_sales": [
       {
         "id": "782c3839-e5fa-42bd-a042-8a37147319c3",
@@ -287,7 +50,7 @@
       ],
       "adminPassword": "1234",
       "supplierPassword": "proveedor123",
-      "creatorPassword": "1234",
+      "creatorPassword": "edrian48228",
       "securityQuestion": "¿Nombre de tu primera mascota?",
       "securityAnswer": "shutter",
       "categories": [
@@ -319,7 +82,8 @@
       "projects": [],
       "hideAvatar": false,
       "hideMonetizeButtons": false,
-      "securityDisabled": false
+      "securityDisabled": false,
+      "phone": "+5356691810"
     },
     "mt_suppliers": null,
     "mt_notifications": [
@@ -483,6 +247,11 @@
         "date": "2026-05-19",
         "hour": 19,
         "count": 4
+      },
+      {
+        "date": "2026-05-21",
+        "hour": 23,
+        "count": 1
       }
     ],
     "mt_projects": []
