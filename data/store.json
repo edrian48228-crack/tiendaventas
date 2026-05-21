@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "exportedAt": "2026-05-21T21:57:12.908Z",
+  "exportedAt": "2026-05-21T21:58:14.702Z",
   "data": {
     "mt_products": [],
     "mt_sales": [
@@ -26,7 +26,7 @@
       }
     ],
     "mt_config": {
-      "storeName": "MegaTienda Online",
+      "storeName": "ElectroShop Pro",
       "whatsapp": "+5354693549",
       "facebook": "https://facebook.com/megatienda",
       "email": "tienda@ejemplo.com",
@@ -69,10 +69,10 @@
       "clientFacebook": "",
       "clientWhatsapp": "+5354693549",
       "avatarEmoji": "🛒",
-      "avatarImage": "blob:https://edrian48228-crack.github.io/cc553c66-a90a-48e5-bf2f-fabf0d1f5930",
+      "avatarImage": "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/cfg-cfgavatarimage-1779400691444-6e0jmvkl.webp",
       "avatarMessages": "¡Ofertas hoy!|¡Bienvenido!|¡Compra ya!|¡Los mejores precios!|¡Nuevo stock!|¡No te lo pierdas!",
       "logoEmoji": "🛒",
-      "logoImage": "",
+      "logoImage": "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/cfg-cfglogoimage-1779400677684-gvp870ct.webp",
       "imgFolder": "",
       "ownStoreUrl": "https://edrian48228-crack.github.io/repo/app/",
       "affiliateUrl": "https://edrian48228-crack.github.io/repo/app/",
@@ -83,7 +83,9 @@
       "hideAvatar": false,
       "hideMonetizeButtons": false,
       "securityDisabled": false,
-      "phone": "+5356691810"
+      "phone": "+5354693549",
+      "__last_logoImage": "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/cfg-cfglogoimage-1779400677684-gvp870ct.webp",
+      "__last_avatarImage": "https://raw.githubusercontent.com/edrian48228-crack/repotienda/main/img/cfg-cfgavatarimage-1779400691444-6e0jmvkl.webp"
     },
     "mt_suppliers": null,
     "mt_notifications": [
